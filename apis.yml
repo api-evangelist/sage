@@ -1,32 +1,38 @@
 aid: sage
 name: Sage
 description: >-
-  Optimize production planning, streamline supply chain operations, and drive
-  continuous improvement and lean manufacturing with cloud-based ERP and MRP
-  software. 
+  Sage provides cloud-based ERP, accounting, payroll, and HR software for
+  businesses. The Sage Developer program provides APIs for integrating with
+  Sage products including Sage Accounting, Sage Business Cloud, Sage Intacct,
+  and Sage 200 to automate business processes and build integrations.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - ERP
+  - Accounting
+  - Cloud Software
+  - Business Management
 created: '2025-03-01'
-modified: '2025-03-01'
+modified: '2026-03-16'
 url: https://raw.githubusercontent.com/api-evangelist/sage/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: sage:sage
-    name: Sage
+    name: Sage API
     description: >-
-      Optimize production planning, streamline supply chain operations, and
-      drive continuous improvement and lean manufacturing with cloud-based ERP
-      and MRP software. 
-    humanURL: ' https://www.sage.com/en-us/industry/manufacturing/?utm_source=GOOGLE&utm_medium=paidsearch&utm_campaign=US%7CGoogle%7CMedium%7CGeneric_Intacct/-MANUFACTURING-(%E2%80%8BtCPA-Multiple)NA_MEDINCT_&utm_content=Generic_Intacct/Manufacturing(P)/General&utm_term=manufacturing+operations+software&gad_source=1&gclid=Cj0KCQiA2oW-BhC2ARIsADSIAWo33x5l8ROACyNVh2lFHYi0W0yFRCZkqYaWkqPex_SYWnuAD52usnQaAsA_EALw_wcB&gclsrc=aw.ds'
+      The Sage API enables developers to integrate with Sage Accounting and
+      other Sage products to automate invoicing, payments, expenses, payroll,
+      and business reporting workflows.
+    humanURL: https://developer.sage.com/
     tags:
+      - ERP
+      - Accounting
       - API
     properties:
       - type: Documentation
-        url: ' https://www.sage.com/en-us/industry/manufacturing/?utm_source=GOOGLE&utm_medium=paidsearch&utm_campaign=US%7CGoogle%7CMedium%7CGeneric_Intacct/-MANUFACTURING-(%E2%80%8BtCPA-Multiple)NA_MEDINCT_&utm_content=Generic_Intacct/Manufacturing(P)/General&utm_term=manufacturing+operations+software&gad_source=1&gclid=Cj0KCQiA2oW-BhC2ARIsADSIAWo33x5l8ROACyNVh2lFHYi0W0yFRCZkqYaWkqPex_SYWnuAD52usnQaAsA_EALw_wcB&gclsrc=aw.ds'
+        url: https://developer.sage.com/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
