@@ -10,10 +10,10 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - ERP
   - Accounting
-  - Cloud Software
   - Business Management
+  - Cloud Software
+  - ERP
 created: '2025-03-01'
 modified: '2026-03-16'
 url: https://raw.githubusercontent.com/api-evangelist/sage/refs/heads/main/apis.yml
@@ -27,9 +27,8 @@ apis:
       and business reporting workflows.
     humanURL: https://developer.sage.com/
     tags:
-      - ERP
       - Accounting
-      - API
+      - ERP
     properties:
       - type: Documentation
         url: https://developer.sage.com/
