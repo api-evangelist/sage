@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sage/main/json-schema/sage-invoice-schema.json",
+  "title": "Sage Sales Invoice",
+  "description": "A sales invoice in Sage Accounting representing a customer billing record.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique invoice identifier"
+    },
+    "displayed_as": {
+      "type": "string",
+      "description": "Invoice reference number display"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Payment due date"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Invoice reference number"
+    },
+    "status": {
+      "type": "object",
+      "description": "Current invoice status",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["DRAFT", "SENT", "PAID", "VOID"]
+        },
+        "displayed_as": {
+          "type": "string"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "description": "Customer contact reference",
+      "properties": {
+        "id": {"type": "string"},
+        "displayed_as": {"type": "string"}
+      }
+    },
+    "line_items": {
+      "type": "array",
+      "description": "Invoice line items",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string"},
+          "quantity": {"type": "number"},
+          "unit_price": {"type": "number"},
+          "net_amount": {"type": "number"},
+          "tax_amount": {"type": "number"},
+          "total_amount": {"type": "number"},
+          "ledger_account": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "displayed_as": {"type": "string"}
+            }
+          },
+          "tax_rate": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "displayed_as": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "net_amount": {
+      "type": "number",
+      "description": "Total pre-tax amount"
+    },
+    "tax_amount": {
+      "type": "number",
+      "description": "Total tax amount"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total invoice amount including tax"
+    },
+    "outstanding_amount": {
+      "type": "number",
+      "description": "Remaining unpaid amount"
+    },
+    "currency": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "displayed_as": {"type": "string"}
+      }
+    }
+  },
+  "required": ["id", "date", "contact", "line_items", "total_amount"]
+}

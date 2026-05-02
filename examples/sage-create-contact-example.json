@@ -1,0 +1,56 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.accounting.sage.com/v3.1/contacts",
+    "headers": {
+      "Authorization": "Bearer {access_token}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "contact": {
+        "name": "Acme Corporation",
+        "contact_type_ids": ["CUSTOMER"],
+        "email": "accounts@acme.com",
+        "telephone": "+1-555-123-4567",
+        "address": {
+          "address_line_1": "123 Business Ave",
+          "city": "San Francisco",
+          "region": "CA",
+          "postal_code": "94102",
+          "country_id": "US"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "crd-001",
+      "displayed_as": "Acme Corporation",
+      "name": "Acme Corporation",
+      "reference": "CUS-001",
+      "contact_types": [
+        {
+          "id": "CUSTOMER",
+          "displayed_as": "Customer"
+        }
+      ],
+      "email": "accounts@acme.com",
+      "telephone": "+1-555-123-4567",
+      "address": {
+        "address_line_1": "123 Business Ave",
+        "city": "San Francisco",
+        "region": "CA",
+        "postal_code": "94102",
+        "country": {
+          "id": "US",
+          "displayed_as": "United States"
+        }
+      },
+      "balance": 0.00,
+      "outstanding_balance": 0.00,
+      "created_at": "2026-05-02T10:00:00Z",
+      "updated_at": "2026-05-02T10:00:00Z"
+    }
+  }
+}

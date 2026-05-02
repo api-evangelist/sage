@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.accounting.sage.com/v3.1/sales_invoices/inv-001/payments",
+    "headers": {
+      "Authorization": "Bearer {access_token}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "payment": {
+        "payment_type_id": "PAYMENT",
+        "bank_account_id": "ba-main",
+        "date": "2026-05-15",
+        "amount": 7800.00,
+        "reference": "PAY-2026-001"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "pay-001",
+      "date": "2026-05-15",
+      "amount": 7800.00,
+      "reference": "PAY-2026-001",
+      "bank_account": {
+        "id": "ba-main",
+        "displayed_as": "Main Business Account"
+      }
+    }
+  }
+}

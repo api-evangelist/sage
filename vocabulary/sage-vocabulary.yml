@@ -1,0 +1,116 @@
+vocabulary:
+  name: Sage Accounting Vocabulary
+  description: Domain vocabulary for Sage cloud ERP and accounting software covering financial management, invoicing, payroll, and business operations terms.
+  version: "1.0.0"
+  created: "2026-05-02"
+  url: https://developer.sage.com/
+
+terms:
+  - term: Contact
+    label: Business Contact
+    definition: >-
+      A customer, supplier, or combined customer-supplier record in Sage Accounting.
+      Contacts store name, address, payment terms, and account balance information.
+    tags:
+      - Accounting
+      - CRM
+
+  - term: SalesInvoice
+    label: Sales Invoice
+    definition: >-
+      A document sent to a customer requesting payment for goods or services delivered.
+      In Sage Accounting, sales invoices move through states: Draft, Sent, Paid, Void.
+    tags:
+      - Invoicing
+      - Accounts Receivable
+
+  - term: PurchaseInvoice
+    label: Purchase Invoice
+    definition: >-
+      A bill received from a supplier for goods or services. Also called a vendor bill.
+      Tracked in Sage Accounting for accounts payable management.
+    tags:
+      - Invoicing
+      - Accounts Payable
+
+  - term: LedgerAccount
+    label: Nominal Ledger Account
+    definition: >-
+      An account in the chart of accounts used to categorize financial transactions.
+      Ledger accounts have nominal codes and can be organized by type (sales, expenses,
+      assets, liabilities).
+    tags:
+      - Accounting
+      - Chart of Accounts
+
+  - term: NominalCode
+    label: Nominal Code
+    definition: >-
+      A numeric code assigned to ledger accounts in Sage Accounting that classifies
+      income, expense, asset, and liability categories in the chart of accounts.
+    tags:
+      - Accounting
+      - Classification
+
+  - term: BankReconciliation
+    label: Bank Reconciliation
+    definition: >-
+      The process of matching transactions in Sage Accounting bank accounts with
+      actual bank statements to ensure accuracy of financial records.
+    tags:
+      - Banking
+      - Accounting
+
+  - term: TaxRate
+    label: Tax Rate
+    definition: >-
+      A configured percentage used to calculate tax on invoice line items. Sage
+      supports VAT, GST, and other tax frameworks depending on business location.
+    tags:
+      - Tax
+      - Configuration
+
+  - term: OAuth2
+    label: OAuth 2.0 Authorization
+    definition: >-
+      The authentication standard used by Sage APIs. Developers register applications
+      at developer.sage.com and use the authorization code flow to obtain access tokens.
+    tags:
+      - Authentication
+      - Security
+
+  - term: LineItem
+    label: Invoice Line Item
+    definition: >-
+      An individual product or service entry on an invoice with quantity, unit price,
+      tax rate, and ledger account allocation. Multiple line items make up an invoice.
+    tags:
+      - Invoicing
+
+  - term: PaymentTerm
+    label: Payment Term
+    definition: >-
+      The agreed period within which a customer must pay an invoice, such as Net 30
+      (payment due 30 days from invoice date) or immediate payment.
+    tags:
+      - Accounting
+      - Credit Management
+
+  - term: FinancialYear
+    label: Financial Year
+    definition: >-
+      The 12-month accounting period used by a business. Sage Accounting configures
+      the financial year start date for period-end reporting and tax calculations.
+    tags:
+      - Accounting
+      - Reporting
+
+  - term: SageIntacct
+    label: Sage Intacct
+    definition: >-
+      Sage's cloud-based advanced financial management platform for mid-market and
+      enterprise organizations, offering multi-entity consolidation, project accounting,
+      and revenue recognition with REST and XML APIs.
+    tags:
+      - ERP
+      - Accounting

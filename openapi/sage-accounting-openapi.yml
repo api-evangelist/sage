@@ -1,0 +1,1307 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting API
+  description: >-
+    Sage Accounting API (v3.1) is a RESTful web service that connects software
+    to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting
+    and Sage Business Cloud Start products. Covers contacts, sales and purchase
+    invoices, payments, bank accounts, ledger accounts, products/services, and
+    financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply:
+    1,296,000 daily requests, 150 concurrent, 100 per minute per company.
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+  - url: https://api.accounting.sage.com/v3.1
+    description: Sage Accounting API v3.1
+
+security:
+  - OAuth2: []
+
+tags:
+  - name: Contacts
+    description: Customer and supplier contact management
+  - name: Sales Invoices
+    description: Sales invoice creation and management
+  - name: Purchase Invoices
+    description: Purchase invoice and supplier bill management
+  - name: Payments
+    description: Customer and supplier payment recording
+  - name: Bank Accounts
+    description: Bank account and transaction management
+  - name: Ledger Accounts
+    description: Chart of accounts and ledger management
+  - name: Products
+    description: Product and service catalog management
+  - name: Tax Rates
+    description: Tax rate configuration
+  - name: Business
+    description: Business settings and configuration
+
+paths:
+  /contacts:
+    get:
+      operationId: listContacts
+      summary: List Contacts
+      description: >-
+        Returns a paginated list of contacts (customers and suppliers).
+        Supports filtering by contact type, search term, and date ranges.
+      tags:
+        - Contacts
+      parameters:
+        - name: contact_type_ids
+          in: query
+          schema:
+            type: string
+          description: Filter by contact type IDs (CUSTOMER, SUPPLIER)
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: Search contacts by name or reference
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: items_per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 200
+      responses:
+        '200':
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactList'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      operationId: createContact
+      summary: Create Contact
+      description: Creates a new customer or supplier contact.
+      tags:
+        - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContactRequest'
+      responses:
+        '201':
+          description: Contact created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /contacts/{key}:
+    get:
+      operationId: getContact
+      summary: Get Contact
+      description: Returns a specific contact by ID.
+      tags:
+        - Contacts
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Contact unique identifier
+      responses:
+        '200':
+          description: Contact details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '404':
+          description: Contact not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      operationId: updateContact
+      summary: Update Contact
+      description: Updates an existing contact.
+      tags:
+        - Contacts
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContactRequest'
+      responses:
+        '200':
+          description: Contact updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    delete:
+      operationId: deleteContact
+      summary: Delete Contact
+      description: Deletes a contact if it has no associated transactions.
+      tags:
+        - Contacts
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Contact deleted
+
+  /sales_invoices:
+    get:
+      operationId: listSalesInvoices
+      summary: List Sales Invoices
+      description: Returns a paginated list of sales invoices.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: contact_id
+          in: query
+          schema:
+            type: string
+          description: Filter by customer contact ID
+        - name: status_id
+          in: query
+          schema:
+            type: string
+            enum: [DRAFT, SENT, PAID, VOID]
+        - name: from_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: to_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: items_per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Sales invoice list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesInvoiceList'
+    post:
+      operationId: createSalesInvoice
+      summary: Create Sales Invoice
+      description: Creates a new sales invoice for a customer.
+      tags:
+        - Sales Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSalesInvoiceRequest'
+      responses:
+        '201':
+          description: Sales invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesInvoice'
+
+  /sales_invoices/{key}:
+    get:
+      operationId: getSalesInvoice
+      summary: Get Sales Invoice
+      description: Returns a specific sales invoice by ID.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sales invoice details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesInvoice'
+    put:
+      operationId: updateSalesInvoice
+      summary: Update Sales Invoice
+      description: Updates a draft sales invoice.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSalesInvoiceRequest'
+      responses:
+        '200':
+          description: Invoice updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesInvoice'
+    delete:
+      operationId: deleteSalesInvoice
+      summary: Delete Sales Invoice
+      description: Voids or deletes a sales invoice.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Invoice deleted
+
+  /purchase_invoices:
+    get:
+      operationId: listPurchaseInvoices
+      summary: List Purchase Invoices
+      description: Returns a paginated list of purchase invoices (supplier bills).
+      tags:
+        - Purchase Invoices
+      parameters:
+        - name: contact_id
+          in: query
+          schema:
+            type: string
+        - name: status_id
+          in: query
+          schema:
+            type: string
+            enum: [DRAFT, SENT, PAID, VOID]
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: items_per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Purchase invoice list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoiceList'
+    post:
+      operationId: createPurchaseInvoice
+      summary: Create Purchase Invoice
+      description: Creates a new purchase invoice (supplier bill).
+      tags:
+        - Purchase Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePurchaseInvoiceRequest'
+      responses:
+        '201':
+          description: Purchase invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoice'
+
+  /purchase_invoices/{key}:
+    get:
+      operationId: getPurchaseInvoice
+      summary: Get Purchase Invoice
+      description: Returns a specific purchase invoice by ID.
+      tags:
+        - Purchase Invoices
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Purchase invoice details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoice'
+
+  /sales_invoices/{key}/payments:
+    post:
+      operationId: recordSalesPayment
+      summary: Record Sales Payment
+      description: Records a payment received for a sales invoice.
+      tags:
+        - Payments
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '201':
+          description: Payment recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+
+  /purchase_invoices/{key}/payments:
+    post:
+      operationId: recordPurchasePayment
+      summary: Record Purchase Payment
+      description: Records a payment made for a purchase invoice.
+      tags:
+        - Payments
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '201':
+          description: Payment recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+
+  /bank_accounts:
+    get:
+      operationId: listBankAccounts
+      summary: List Bank Accounts
+      description: Returns a list of bank accounts connected to the business.
+      tags:
+        - Bank Accounts
+      responses:
+        '200':
+          description: Bank account list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountList'
+    post:
+      operationId: createBankAccount
+      summary: Create Bank Account
+      description: Creates a new bank account record.
+      tags:
+        - Bank Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBankAccountRequest'
+      responses:
+        '201':
+          description: Bank account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccount'
+
+  /bank_accounts/{key}:
+    get:
+      operationId: getBankAccount
+      summary: Get Bank Account
+      description: Returns details of a specific bank account.
+      tags:
+        - Bank Accounts
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Bank account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccount'
+
+  /ledger_accounts:
+    get:
+      operationId: listLedgerAccounts
+      summary: List Ledger Accounts
+      description: Returns the chart of accounts (ledger accounts).
+      tags:
+        - Ledger Accounts
+      parameters:
+        - name: visible_in
+          in: query
+          schema:
+            type: string
+            enum: [sales, purchasing, banking, other]
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Ledger account list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LedgerAccountList'
+
+  /products:
+    get:
+      operationId: listProducts
+      summary: List Products
+      description: Returns a paginated list of products and services.
+      tags:
+        - Products
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: items_per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Product list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+    post:
+      operationId: createProduct
+      summary: Create Product
+      description: Creates a new product or service.
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductRequest'
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+  /products/{key}:
+    get:
+      operationId: getProduct
+      summary: Get Product
+      description: Returns details of a specific product or service.
+      tags:
+        - Products
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      operationId: updateProduct
+      summary: Update Product
+      description: Updates an existing product or service.
+      tags:
+        - Products
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProductRequest'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+  /tax_rates:
+    get:
+      operationId: listTaxRates
+      summary: List Tax Rates
+      description: Returns configured tax rates for the business.
+      tags:
+        - Tax Rates
+      responses:
+        '200':
+          description: Tax rate list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRateList'
+
+  /business:
+    get:
+      operationId: getBusinessSettings
+      summary: Get Business Settings
+      description: Returns the business profile and settings.
+      tags:
+        - Business
+      responses:
+        '200':
+          description: Business settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business'
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data
+
+  schemas:
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+          description: Display name
+        name:
+          type: string
+        reference:
+          type: string
+        contact_types:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              displayed_as:
+                type: string
+        email:
+          type: string
+          format: email
+        telephone:
+          type: string
+        mobile:
+          type: string
+        website:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        balance:
+          type: number
+        outstanding_balance:
+          type: number
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    CreateContactRequest:
+      type: object
+      required:
+        - name
+        - contact_type_ids
+      properties:
+        contact:
+          type: object
+          required:
+            - name
+            - contact_type_ids
+          properties:
+            name:
+              type: string
+              example: Acme Corporation
+            contact_type_ids:
+              type: array
+              items:
+                type: string
+              example: [CUSTOMER]
+            email:
+              type: string
+              format: email
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+
+    UpdateContactRequest:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+
+    ContactList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        $total:
+          type: integer
+        $page:
+          type: integer
+        $next:
+          type: string
+          nullable: true
+        $back:
+          type: string
+          nullable: true
+
+    SalesInvoice:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        date:
+          type: string
+          format: date
+        due_date:
+          type: string
+          format: date
+        reference:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusRef'
+        contact:
+          $ref: '#/components/schemas/ContactRef'
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        outstanding_amount:
+          type: number
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+
+    CreateSalesInvoiceRequest:
+      type: object
+      properties:
+        sales_invoice:
+          type: object
+          required:
+            - contact_id
+            - date
+            - line_items
+          properties:
+            contact_id:
+              type: string
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
+
+    UpdateSalesInvoiceRequest:
+      type: object
+      properties:
+        sales_invoice:
+          type: object
+          properties:
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
+
+    SalesInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesInvoice'
+        $total:
+          type: integer
+        $page:
+          type: integer
+
+    PurchaseInvoice:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        due_date:
+          type: string
+          format: date
+        reference:
+          type: string
+        vendor_reference:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusRef'
+        contact:
+          $ref: '#/components/schemas/ContactRef'
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        outstanding_amount:
+          type: number
+
+    CreatePurchaseInvoiceRequest:
+      type: object
+      properties:
+        purchase_invoice:
+          type: object
+          required:
+            - contact_id
+            - date
+            - line_items
+          properties:
+            contact_id:
+              type: string
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            vendor_reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
+
+    PurchaseInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
+
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        amount:
+          type: number
+        reference:
+          type: string
+        bank_account:
+          $ref: '#/components/schemas/BankAccountRef'
+
+    PaymentRequest:
+      type: object
+      properties:
+        payment:
+          type: object
+          required:
+            - payment_type_id
+            - bank_account_id
+            - date
+            - amount
+          properties:
+            payment_type_id:
+              type: string
+              enum: [PAYMENT, CREDIT]
+            bank_account_id:
+              type: string
+            date:
+              type: string
+              format: date
+            amount:
+              type: number
+              format: double
+            reference:
+              type: string
+
+    BankAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        name:
+          type: string
+        nominal_code:
+          type: string
+        balance:
+          type: number
+        bank_account_type:
+          $ref: '#/components/schemas/TypeRef'
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+
+    CreateBankAccountRequest:
+      type: object
+      properties:
+        bank_account:
+          type: object
+          required:
+            - name
+            - bank_account_type_id
+          properties:
+            name:
+              type: string
+            bank_account_type_id:
+              type: string
+              enum: [BANK, CREDIT_CARD, CASH, SAVINGS, OTHER]
+            nominal_code:
+              type: string
+
+    BankAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccount'
+
+    LedgerAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        name:
+          type: string
+        nominal_code:
+          type: string
+        ledger_account_type:
+          $ref: '#/components/schemas/TypeRef'
+        is_control_account:
+          type: boolean
+
+    LedgerAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LedgerAccount'
+        $total:
+          type: integer
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        description:
+          type: string
+        item_code:
+          type: string
+        sales_prices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        purchase_prices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        sales_ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        purchase_ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+
+    CreateProductRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          required:
+            - description
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+            sales_ledger_account_id:
+              type: string
+            tax_rate_id:
+              type: string
+
+    UpdateProductRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+
+    ProductList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        $total:
+          type: integer
+
+    TaxRate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        name:
+          type: string
+        percentage:
+          type: number
+        is_combined_tax_rate:
+          type: boolean
+
+    TaxRateList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxRate'
+
+    Business:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        registration_number:
+          type: string
+        tax_number:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+        financial_year_start_date:
+          type: string
+          format: date
+
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+
+    LineItemInput:
+      type: object
+      required:
+        - description
+        - quantity
+        - unit_price
+        - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
+
+    Address:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryRef'
+
+    AddressInput:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country_id:
+          type: string
+
+    Price:
+      type: object
+      properties:
+        price:
+          type: number
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+
+    PriceInput:
+      type: object
+      properties:
+        price:
+          type: number
+        currency_id:
+          type: string
+
+    StatusRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    ContactRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    BankAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    TaxRateRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    CurrencyRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    TypeRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        $problems:
+          type: array
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+              message:
+                type: string

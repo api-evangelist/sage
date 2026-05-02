@@ -1,0 +1,88 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.accounting.sage.com/v3.1/sales_invoices",
+    "headers": {
+      "Authorization": "Bearer {access_token}",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "sales_invoice": {
+        "contact_id": "crd-001",
+        "date": "2026-05-02",
+        "due_date": "2026-06-01",
+        "reference": "INV-2026-001",
+        "line_items": [
+          {
+            "description": "Web Development Services - May 2026",
+            "quantity": 40,
+            "unit_price": 150.00,
+            "ledger_account_id": "la-sales",
+            "tax_rate_id": "tr-20"
+          },
+          {
+            "description": "Hosting & Infrastructure",
+            "quantity": 1,
+            "unit_price": 500.00,
+            "ledger_account_id": "la-sales",
+            "tax_rate_id": "tr-20"
+          }
+        ]
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "inv-001",
+      "displayed_as": "INV-2026-001",
+      "date": "2026-05-02",
+      "due_date": "2026-06-01",
+      "reference": "INV-2026-001",
+      "status": {
+        "id": "DRAFT",
+        "displayed_as": "Draft"
+      },
+      "contact": {
+        "id": "crd-001",
+        "displayed_as": "Acme Corporation"
+      },
+      "line_items": [
+        {
+          "id": "li-001",
+          "description": "Web Development Services - May 2026",
+          "quantity": 40,
+          "unit_price": 150.00,
+          "net_amount": 6000.00,
+          "tax_amount": 1200.00,
+          "total_amount": 7200.00,
+          "tax_rate": {
+            "id": "tr-20",
+            "displayed_as": "20% VAT"
+          }
+        },
+        {
+          "id": "li-002",
+          "description": "Hosting & Infrastructure",
+          "quantity": 1,
+          "unit_price": 500.00,
+          "net_amount": 500.00,
+          "tax_amount": 100.00,
+          "total_amount": 600.00,
+          "tax_rate": {
+            "id": "tr-20",
+            "displayed_as": "20% VAT"
+          }
+        }
+      ],
+      "net_amount": 6500.00,
+      "tax_amount": 1300.00,
+      "total_amount": 7800.00,
+      "outstanding_amount": 7800.00,
+      "currency": {
+        "id": "USD",
+        "displayed_as": "US Dollar"
+      }
+    }
+  }
+}

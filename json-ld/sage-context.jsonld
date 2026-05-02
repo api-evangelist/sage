@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "sage": "https://developer.sage.com/vocab/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+
+    "Contact": "schema:Person",
+    "SalesInvoice": "schema:Invoice",
+    "PurchaseInvoice": "sage:PurchaseInvoice",
+    "Payment": "schema:PaymentCharge",
+    "BankAccount": "schema:BankAccount",
+    "LedgerAccount": "sage:LedgerAccount",
+    "Product": "schema:Product",
+    "TaxRate": "sage:TaxRate",
+    "LineItem": "schema:OrderItem",
+    "Business": "schema:Organization",
+
+    "id": "@id",
+    "name": "schema:name",
+    "displayed_as": "schema:alternateName",
+    "reference": "schema:identifier",
+    "email": "schema:email",
+    "telephone": "schema:telephone",
+    "website": "schema:url",
+    "balance": "fibo:hasBalance",
+    "outstanding_balance": "sage:outstandingBalance",
+    "date": "schema:dateCreated",
+    "due_date": "schema:paymentDueDate",
+    "net_amount": "schema:price",
+    "tax_amount": "sage:taxAmount",
+    "total_amount": "schema:totalPaymentDue",
+    "outstanding_amount": "sage:outstandingAmount",
+    "quantity": "schema:orderQuantity",
+    "unit_price": "schema:unitPrice",
+    "description": "schema:description",
+    "item_code": "schema:sku",
+    "nominal_code": "sage:nominalCode",
+    "percentage": "schema:percentage",
+    "financial_year_start_date": "sage:financialYearStartDate",
+    "registration_number": "schema:vatID",
+    "tax_number": "sage:taxNumber",
+
+    "address": {
+      "@id": "schema:address",
+      "@type": "schema:PostalAddress"
+    },
+    "address_line_1": "schema:streetAddress",
+    "city": "schema:addressLocality",
+    "region": "schema:addressRegion",
+    "postal_code": "schema:postalCode",
+    "country": "schema:addressCountry",
+    "currency": "schema:currency"
+  }
+}

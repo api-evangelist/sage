@@ -1,0 +1,37 @@
+{
+  "title": "Sage Contact Structure",
+  "description": "JSON structure documentation for Sage Accounting contact data model",
+  "type": "object",
+  "structure": {
+    "id": {"type": "string", "description": "Unique Sage contact identifier"},
+    "displayed_as": {"type": "string", "description": "Display name"},
+    "name": {"type": "string", "description": "Full name or company name"},
+    "reference": {"type": "string", "description": "Internal reference code"},
+    "contact_types": {
+      "type": "array",
+      "description": "Contact roles (CUSTOMER and/or SUPPLIER)",
+      "items": {
+        "id": {"type": "string", "enum": ["CUSTOMER", "SUPPLIER"]},
+        "displayed_as": {"type": "string"}
+      }
+    },
+    "email": {"type": "string", "format": "email"},
+    "telephone": {"type": "string"},
+    "address": {
+      "type": "object",
+      "description": "Postal address",
+      "children": {
+        "address_line_1": {"type": "string"},
+        "address_line_2": {"type": "string"},
+        "city": {"type": "string"},
+        "region": {"type": "string"},
+        "postal_code": {"type": "string"},
+        "country": {"type": "object", "description": "Country reference with id and display name"}
+      }
+    },
+    "balance": {"type": "number", "description": "Current account balance"},
+    "outstanding_balance": {"type": "number", "description": "Unpaid balance"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sage/main/json-schema/sage-contact-schema.json",
+  "title": "Sage Contact",
+  "description": "A customer or supplier contact in Sage Accounting.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique contact identifier"
+    },
+    "displayed_as": {
+      "type": "string",
+      "description": "Display name for the contact"
+    },
+    "name": {
+      "type": "string",
+      "description": "Contact full name or company name"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Internal reference code"
+    },
+    "contact_types": {
+      "type": "array",
+      "description": "Contact types (CUSTOMER, SUPPLIER, or both)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["CUSTOMER", "SUPPLIER"]
+          },
+          "displayed_as": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Primary email address"
+    },
+    "telephone": {
+      "type": "string",
+      "description": "Primary telephone number"
+    },
+    "mobile": {
+      "type": "string",
+      "description": "Mobile phone number"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Website URL"
+    },
+    "address": {
+      "type": "object",
+      "description": "Postal address",
+      "properties": {
+        "address_line_1": {"type": "string"},
+        "address_line_2": {"type": "string"},
+        "city": {"type": "string"},
+        "region": {"type": "string"},
+        "postal_code": {"type": "string"},
+        "country": {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string"},
+            "displayed_as": {"type": "string"}
+          }
+        }
+      }
+    },
+    "balance": {
+      "type": "number",
+      "description": "Current account balance"
+    },
+    "outstanding_balance": {
+      "type": "number",
+      "description": "Outstanding unpaid balance"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["id", "name", "contact_types"]
+}
