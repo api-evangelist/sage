@@ -69,6 +69,8 @@ Desktop accounting integration API for UK small businesses using Sage 50 Account
 - [SpectralRules](rules/sage-rules.yml)
 - [JSONSchema](json-schema/sage-contact-schema.json)
 - [JSONSchema](json-schema/sage-invoice-schema.json)
+- [JSONStructure](json-structure/sage-contact-structure.json)
+- [JSONStructure](json-structure/sage-invoice-structure.json)
 - [JSONLDContext](json-ld/sage-context.jsonld)
 - [Vocabulary](vocabulary/sage-vocabulary.yml)
 - [Capabilities](capabilities/accounting-and-finance.yaml)
@@ -90,6 +92,7 @@ Desktop accounting integration API for UK small businesses using Sage 50 Account
 | JSON Schema | [json-schema/sage-contact-schema.json](json-schema/sage-contact-schema.json) |
 | JSON Schema | [json-schema/sage-invoice-schema.json](json-schema/sage-invoice-schema.json) |
 | JSON Structure | [json-structure/sage-contact-structure.json](json-structure/sage-contact-structure.json) |
+| JSON Structure | [json-structure/sage-invoice-structure.json](json-structure/sage-invoice-structure.json) |
 | JSON-LD Context | [json-ld/sage-context.jsonld](json-ld/sage-context.jsonld) |
 | Vocabulary | [vocabulary/sage-vocabulary.yml](vocabulary/sage-vocabulary.yml) |
 | Examples | [examples/](examples/) |

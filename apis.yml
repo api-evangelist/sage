@@ -140,6 +140,10 @@ common:
     url: json-schema/sage-contact-schema.json
   - type: JSONSchema
     url: json-schema/sage-invoice-schema.json
+  - type: JSONStructure
+    url: json-structure/sage-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/sage-invoice-structure.json
   - type: JSONLDContext
     url: json-ld/sage-context.jsonld
   - type: Vocabulary
