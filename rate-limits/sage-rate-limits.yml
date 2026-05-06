@@ -4,107 +4,35 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Sage
 providerId: sage
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Accounting
-  - Business Management
-  - Cloud Software
   - ERP
-  - Payroll
-  - HR
+  - B2B
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Sage API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+description: Sage's developer documentation pages (developer.sage.com) are bot-gated and could not be
+  fetched. Each Sage product (Accounting, Intacct, 50, 200, People, Payroll) maintains its own rate-limiting
+  rules in its product-specific developer portal. This artifact is intentionally a Contact Sales placeholder
+  until product-specific limits can be confirmed against the entitled developer portal.
+sources:
+  - https://developer.sage.com/
+notes: Public scraping returned 403; numeric throttle values per Sage product family were not retrievable
+  in this run.
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Sage Accounting API
-      - Sage Intacct API
-      - Sage X3 API
-      - Sage 200 API
-      - Sage 50 Accounts API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Sage Accounting API
-      - Sage Intacct API
-      - Sage X3 API
-      - Sage 200 API
-      - Sage 50 Accounts API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Sage Accounting API
-      - Sage Intacct API
-      - Sage X3 API
-      - Sage 200 API
-      - Sage 50 Accounts API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Sage Accounting API
-      - Sage Intacct API
-      - Sage X3 API
-      - Sage 200 API
-      - Sage 50 Accounts API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Sage Accounting API
-      - Sage Intacct API
-      - Sage X3 API
-      - Sage 200 API
-      - Sage 50 Accounts API
+  - name: Per-product rate limits
+    scope: account
+    metric: varies
+    limit: see product-specific developer portal
+    notes: Sage Accounting, Intacct, and other product lines each define their own rate limits in their
+      respective developer portals.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Per-product enforcement
+    description: Throttles are scoped per Sage product subscription and per tenant; behavior differs between
+      Accounting and Intacct in particular.
+  - name: Subscription-bundled
+    description: Limits ride along with the underlying Sage product subscription rather than being raised
+      via a separate API plan.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
