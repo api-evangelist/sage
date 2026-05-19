@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sage Accounting API — Payments
+  description: 'Sage Accounting API — Payments. 2 operations. Lead operation: Record Purchase Payment. Self-contained Naftiko
+    capability covering one Sage business surface.'
+  tags:
+  - Sage
+  - Payments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAGE_API_KEY: SAGE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accounting-payments
+    baseUri: https://api.accounting.sage.com/v3.1
+    description: Sage Accounting API — Payments business capability. Self-contained, no shared references.
+    resources:
+    - name: purchase_invoices-key-payments
+      path: /purchase_invoices/{key}/payments
+      operations:
+      - name: recordpurchasepayment
+        method: POST
+        description: Record Purchase Payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sales_invoices-key-payments
+      path: /sales_invoices/{key}/payments
+      operations:
+      - name: recordsalespayment
+        method: POST
+        description: Record Sales Payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SAGE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: accounting-payments-rest
+    port: 8080
+    description: REST adapter for Sage Accounting API — Payments. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/purchase-invoices/{key}/payments
+      name: purchase-invoices-key-payments
+      description: REST surface for purchase_invoices-key-payments.
+      operations:
+      - method: POST
+        name: recordpurchasepayment
+        description: Record Purchase Payment
+        call: accounting-payments.recordpurchasepayment
+        with:
+          key: rest.key
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sales-invoices/{key}/payments
+      name: sales-invoices-key-payments
+      description: REST surface for sales_invoices-key-payments.
+      operations:
+      - method: POST
+        name: recordsalespayment
+        description: Record Sales Payment
+        call: accounting-payments.recordsalespayment
+        with:
+          key: rest.key
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accounting-payments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Sage Accounting API — Payments. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: record-purchase-payment
+      description: Record Purchase Payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accounting-payments.recordpurchasepayment
+      with:
+        key: tools.key
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: record-sales-payment
+      description: Record Sales Payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accounting-payments.recordsalespayment
+      with:
+        key: tools.key
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
