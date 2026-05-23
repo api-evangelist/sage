@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TaxRate",
+  "title": "TaxRate",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "displayed_as": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "percentage": {
+      "type": "number"
+    },
+    "is_combined_tax_rate": {
+      "type": "boolean"
+    }
+  }
+}

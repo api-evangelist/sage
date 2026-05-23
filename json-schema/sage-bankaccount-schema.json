@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BankAccount",
+  "title": "BankAccount",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "displayed_as": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "nominal_code": {
+      "type": "string"
+    },
+    "balance": {
+      "type": "number"
+    },
+    "bank_account_type": {
+      "$ref": "#/components/schemas/TypeRef"
+    },
+    "currency": {
+      "$ref": "#/components/schemas/CurrencyRef"
+    }
+  }
+}

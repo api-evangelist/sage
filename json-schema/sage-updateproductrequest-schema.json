@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateProductRequest",
+  "title": "UpdateProductRequest",
+  "type": "object",
+  "properties": {
+    "product": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "item_code": {
+          "type": "string"
+        },
+        "sales_prices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/PriceInput"
+          }
+        }
+      }
+    }
+  }
+}

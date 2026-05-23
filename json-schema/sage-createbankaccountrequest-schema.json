@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateBankAccountRequest",
+  "title": "CreateBankAccountRequest",
+  "type": "object",
+  "properties": {
+    "bank_account": {
+      "type": "object",
+      "required": [
+        "name",
+        "bank_account_type_id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "bank_account_type_id": {
+          "type": "string",
+          "enum": [
+            "BANK",
+            "CREDIT_CARD",
+            "CASH",
+            "SAVINGS",
+            "OTHER"
+          ]
+        },
+        "nominal_code": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Business",
+  "title": "Business",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "registration_number": {
+      "type": "string"
+    },
+    "tax_number": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "currency": {
+      "$ref": "#/components/schemas/CurrencyRef"
+    },
+    "financial_year_start_date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

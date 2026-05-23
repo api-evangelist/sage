@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PurchaseInvoice",
+  "title": "PurchaseInvoice",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "vendor_reference": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/StatusRef"
+    },
+    "contact": {
+      "$ref": "#/components/schemas/ContactRef"
+    },
+    "line_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/LineItem"
+      }
+    },
+    "net_amount": {
+      "type": "number"
+    },
+    "tax_amount": {
+      "type": "number"
+    },
+    "total_amount": {
+      "type": "number"
+    },
+    "outstanding_amount": {
+      "type": "number"
+    }
+  }
+}

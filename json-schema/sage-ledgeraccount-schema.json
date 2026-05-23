@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LedgerAccount",
+  "title": "LedgerAccount",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "displayed_as": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "nominal_code": {
+      "type": "string"
+    },
+    "ledger_account_type": {
+      "$ref": "#/components/schemas/TypeRef"
+    },
+    "is_control_account": {
+      "type": "boolean"
+    }
+  }
+}

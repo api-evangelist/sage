@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PaymentRequest",
+  "title": "PaymentRequest",
+  "type": "object",
+  "properties": {
+    "payment": {
+      "type": "object",
+      "required": [
+        "payment_type_id",
+        "bank_account_id",
+        "date",
+        "amount"
+      ],
+      "properties": {
+        "payment_type_id": {
+          "type": "string",
+          "enum": [
+            "PAYMENT",
+            "CREDIT"
+          ]
+        },
+        "bank_account_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "reference": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

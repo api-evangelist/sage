@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Price",
+  "title": "Price",
+  "type": "object",
+  "properties": {
+    "price": {
+      "type": "number"
+    },
+    "currency": {
+      "$ref": "#/components/schemas/CurrencyRef"
+    }
+  }
+}

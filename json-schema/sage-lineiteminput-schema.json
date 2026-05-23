@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LineItemInput",
+  "title": "LineItemInput",
+  "type": "object",
+  "required": [
+    "description",
+    "quantity",
+    "unit_price",
+    "ledger_account_id"
+  ],
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number",
+      "default": 1
+    },
+    "unit_price": {
+      "type": "number",
+      "format": "double"
+    },
+    "ledger_account_id": {
+      "type": "string"
+    },
+    "tax_rate_id": {
+      "type": "string"
+    }
+  }
+}

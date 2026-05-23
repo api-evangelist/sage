@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateContactRequest",
+  "title": "CreateContactRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "contact_type_ids"
+  ],
+  "properties": {
+    "contact": {
+      "type": "object",
+      "required": [
+        "name",
+        "contact_type_ids"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Acme Corporation"
+        },
+        "contact_type_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "CUSTOMER"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/components/schemas/AddressInput"
+        }
+      }
+    }
+  }
+}

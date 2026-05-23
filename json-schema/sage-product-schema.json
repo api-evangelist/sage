@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Product",
+  "title": "Product",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "displayed_as": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "item_code": {
+      "type": "string"
+    },
+    "sales_prices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Price"
+      }
+    },
+    "purchase_prices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Price"
+      }
+    },
+    "sales_ledger_account": {
+      "$ref": "#/components/schemas/LedgerAccountRef"
+    },
+    "purchase_ledger_account": {
+      "$ref": "#/components/schemas/LedgerAccountRef"
+    },
+    "tax_rate": {
+      "$ref": "#/components/schemas/TaxRateRef"
+    }
+  }
+}

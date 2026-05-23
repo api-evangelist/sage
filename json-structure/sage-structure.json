@@ -1,0 +1,485 @@
+{
+  "provider": "Sage",
+  "providerId": "sage",
+  "kind": "json-structure",
+  "description": "Structural overview of the Sage API surface; extracted from openapi/.",
+  "schemaCount": 40,
+  "operationCount": 25,
+  "schemas": [
+    {
+      "name": "Contact",
+      "type": "object",
+      "propertyCount": 14,
+      "required": []
+    },
+    {
+      "name": "CreateContactRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "name",
+        "contact_type_ids"
+      ]
+    },
+    {
+      "name": "UpdateContactRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ContactList",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "SalesInvoice",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "CreateSalesInvoiceRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "UpdateSalesInvoiceRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "SalesInvoiceList",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "PurchaseInvoice",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "CreatePurchaseInvoiceRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "PurchaseInvoiceList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Payment",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "PaymentRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "BankAccount",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "CreateBankAccountRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "BankAccountList",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "LedgerAccount",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "LedgerAccountList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Product",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "CreateProductRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "UpdateProductRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ProductList",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TaxRate",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "TaxRateList",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Business",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "LineItem",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "LineItemInput",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "description",
+        "quantity",
+        "unit_price",
+        "ledger_account_id"
+      ]
+    },
+    {
+      "name": "Address",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "AddressInput",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Price",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "PriceInput",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "StatusRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ContactRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BankAccountRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "LedgerAccountRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TaxRateRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CurrencyRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "TypeRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CountryRef",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ErrorResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/contacts",
+      "operationId": "listContacts",
+      "summary": "List Contacts",
+      "tags": [
+        "Contacts"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/contacts",
+      "operationId": "createContact",
+      "summary": "Create Contact",
+      "tags": [
+        "Contacts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/contacts/{key}",
+      "operationId": "getContact",
+      "summary": "Get Contact",
+      "tags": [
+        "Contacts"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/contacts/{key}",
+      "operationId": "updateContact",
+      "summary": "Update Contact",
+      "tags": [
+        "Contacts"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/contacts/{key}",
+      "operationId": "deleteContact",
+      "summary": "Delete Contact",
+      "tags": [
+        "Contacts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sales_invoices",
+      "operationId": "listSalesInvoices",
+      "summary": "List Sales Invoices",
+      "tags": [
+        "Sales Invoices"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sales_invoices",
+      "operationId": "createSalesInvoice",
+      "summary": "Create Sales Invoice",
+      "tags": [
+        "Sales Invoices"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sales_invoices/{key}",
+      "operationId": "getSalesInvoice",
+      "summary": "Get Sales Invoice",
+      "tags": [
+        "Sales Invoices"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sales_invoices/{key}",
+      "operationId": "updateSalesInvoice",
+      "summary": "Update Sales Invoice",
+      "tags": [
+        "Sales Invoices"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sales_invoices/{key}",
+      "operationId": "deleteSalesInvoice",
+      "summary": "Delete Sales Invoice",
+      "tags": [
+        "Sales Invoices"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/purchase_invoices",
+      "operationId": "listPurchaseInvoices",
+      "summary": "List Purchase Invoices",
+      "tags": [
+        "Purchase Invoices"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/purchase_invoices",
+      "operationId": "createPurchaseInvoice",
+      "summary": "Create Purchase Invoice",
+      "tags": [
+        "Purchase Invoices"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/purchase_invoices/{key}",
+      "operationId": "getPurchaseInvoice",
+      "summary": "Get Purchase Invoice",
+      "tags": [
+        "Purchase Invoices"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sales_invoices/{key}/payments",
+      "operationId": "recordSalesPayment",
+      "summary": "Record Sales Payment",
+      "tags": [
+        "Payments"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/purchase_invoices/{key}/payments",
+      "operationId": "recordPurchasePayment",
+      "summary": "Record Purchase Payment",
+      "tags": [
+        "Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/bank_accounts",
+      "operationId": "listBankAccounts",
+      "summary": "List Bank Accounts",
+      "tags": [
+        "Bank Accounts"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/bank_accounts",
+      "operationId": "createBankAccount",
+      "summary": "Create Bank Account",
+      "tags": [
+        "Bank Accounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/bank_accounts/{key}",
+      "operationId": "getBankAccount",
+      "summary": "Get Bank Account",
+      "tags": [
+        "Bank Accounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/ledger_accounts",
+      "operationId": "listLedgerAccounts",
+      "summary": "List Ledger Accounts",
+      "tags": [
+        "Ledger Accounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "operationId": "listProducts",
+      "summary": "List Products",
+      "tags": [
+        "Products"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/products",
+      "operationId": "createProduct",
+      "summary": "Create Product",
+      "tags": [
+        "Products"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/products/{key}",
+      "operationId": "getProduct",
+      "summary": "Get Product",
+      "tags": [
+        "Products"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/products/{key}",
+      "operationId": "updateProduct",
+      "summary": "Update Product",
+      "tags": [
+        "Products"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tax_rates",
+      "operationId": "listTaxRates",
+      "summary": "List Tax Rates",
+      "tags": [
+        "Tax Rates"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/business",
+      "operationId": "getBusinessSettings",
+      "summary": "Get Business Settings",
+      "tags": [
+        "Business"
+      ]
+    }
+  ]
+}

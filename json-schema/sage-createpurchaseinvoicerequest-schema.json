@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreatePurchaseInvoiceRequest",
+  "title": "CreatePurchaseInvoiceRequest",
+  "type": "object",
+  "properties": {
+    "purchase_invoice": {
+      "type": "object",
+      "required": [
+        "contact_id",
+        "date",
+        "line_items"
+      ],
+      "properties": {
+        "contact_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "due_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "vendor_reference": {
+          "type": "string"
+        },
+        "line_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/LineItemInput"
+          }
+        }
+      }
+    }
+  }
+}
