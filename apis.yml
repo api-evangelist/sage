@@ -17,7 +17,7 @@ tags:
 - Payroll
 - HR
 created: '2025-03-01'
-modified: '2026-05-19'
+modified: '2026-05-30'
 url: https://raw.githubusercontent.com/api-evangelist/sage/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
@@ -134,6 +134,8 @@ common:
   url: https://github.com/Sage
 - type: OpenAPI
   url: openapi/sage-accounting-openapi.yml
+- type: AsyncAPI
+  url: asyncapi/sage-webhooks-asyncapi.yml
 - type: SpectralRules
   url: rules/sage-rules.yml
 - type: JSONSchema

@@ -1,0 +1,379 @@
+asyncapi: 2.6.0
+info:
+  title: Sage Webhooks
+  version: '1.0.0'
+  description: |-
+    AsyncAPI 2.6 description of the documented webhook / event surface across
+    Sage developer products. Sage's webhook story is fragmented across product
+    lines and only a subset of products publish a webhook capability. This spec
+    captures only the surfaces that Sage actually documents publicly; products
+    without a documented webhook capability are listed at the bottom of this
+    description.
+
+    Documented webhook surfaces modelled here:
+
+      - Sage Intacct - Outbound webhooks (REST API)
+        https://developer.sage.com/intacct/docs/developer-portal/guides/webhooks
+        https://developer.sage.com/intacct/docs/developer-portal/webhooks-triggers/
+        https://developer.sage.com/intacct/docs/1/sage-intacct-rest-api/webhooks-and-triggers
+        Outbound webhooks fire when objects in Sage Intacct are created or
+        updated. The 2025 R2 release added a Platform event queue trigger that
+        queues payloads in storage for delivery.
+
+      - Sage Intacct - Smart Events (legacy Platform Services)
+        https://developer.intacct.com/api/customization-services/smart-events/
+        https://developer.intacct.com/customization-services/smart-event-walkthrough/
+        Smart Events fire on Add, Set and Delete operations against Intacct
+        objects (for example ARINVOICE, SODOCUMENT). The HTTP POST action
+        delivers a payload to an external URL.
+
+      - Sage People - Webhooks
+        https://developer.sage.com/people/guides/webhooks/
+        Sage People webhooks notify subscribers when an Employee record is
+        created or updated. The documented payload contains the Employee
+        identifier; subscribers fetch the full record from the People API.
+
+      - Sage Construction Management - Webhooks
+        https://api-ext.sagecm.intacct.com/Documentation/GettingStarted
+        Sage Construction Management can call a configured URL after a feature
+        action (such as Company create). One webhook path can serve all
+        features, or a different path can be configured per feature. A
+        customer-defined security signature is delivered in the request header.
+
+      - Sage Payments Out - Provider webhook notifications
+        https://developer.sage.com/payments-out/provider-api/reference/provider-webhook-notifications-api/
+        https://developer.sage.com/payments-out/guides/provider/understand-provider-messaging-webhooks/
+        Provider-facing webhook notifications API used by payment providers
+        integrating with the Sage Payments Out platform.
+
+    Products WITHOUT a documented native webhook surface (as of the source
+    documentation reviewed):
+
+      - Sage Accounting / Business Cloud Accounting - no native webhook surface
+        is documented on developer.sage.com; integrators use polling or a
+        third-party iPaaS to derive change events.
+      - Sage 50 Accounts - no documented webhook surface.
+      - Sage 200 - no documented webhook surface.
+      - Sage X3 - no documented webhook surface (GraphQL and SOAP only).
+
+    Caveats:
+      - Sage does not publish a single canonical, machine-readable webhook
+        event catalogue. Payload field names and JSON Schemas are not
+        published in full for most of the surfaces above. Where the schema is
+        not publicly specified, message payloads in this spec are modelled as
+        open `object` types and the description records that fact, rather
+        than fabricating field names.
+      - All channel paths are subscriber-hosted endpoints that the customer
+        configures inside the relevant Sage product UI or via the relevant
+        management API. The paths shown are illustrative placeholders.
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Terms
+    url: https://developer.sage.com/
+
+defaultContentType: application/json
+
+servers:
+  intacctSubscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |-
+      Customer-hosted HTTPS endpoint that receives outbound webhook POSTs from
+      Sage Intacct (REST outbound webhooks, Platform event queue triggers, or
+      Smart Events with an HTTP POST action). The full URL is configured in
+      the Intacct tenant.
+    variables:
+      webhookUrl:
+        default: https://example.com/sage/intacct/webhook
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+    security:
+      - intacctSignature: []
+  peopleSubscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |-
+      Customer-hosted HTTPS endpoint that receives Sage People webhook POSTs.
+      The endpoint is registered on a Webhook object that references a Named
+      Credential in the Sage People tenant.
+    variables:
+      webhookUrl:
+        default: https://example.com/sage/people/webhook
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+    security:
+      - namedCredential: []
+  constructionManagementSubscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |-
+      Customer-hosted HTTPS endpoint that receives Sage Construction
+      Management webhook POSTs. One path can serve every feature, or a
+      different path can be configured per feature in the Sage Construction
+      Management settings.
+    variables:
+      webhookUrl:
+        default: https://example.com/sage/cm/webhook
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+    security:
+      - cmSignature: []
+  paymentsOutSubscriber:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |-
+      Provider-hosted HTTPS endpoint registered with Sage Payments Out to
+      receive provider webhook notifications.
+    variables:
+      webhookUrl:
+        default: https://example.com/sage/payments-out/webhook
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+
+channels:
+  /sage/intacct/webhook:
+    description: |-
+      Subscriber endpoint that receives Sage Intacct outbound webhook events
+      and Smart Event HTTP POST deliveries. Intacct delivers one event per
+      HTTP POST request. Subscribers should respond with a 2xx status code;
+      Intacct outbound webhooks retry automatically on delivery failure.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveIntacctEvent
+      summary: Receive a Sage Intacct outbound webhook or Smart Event POST
+      description: |-
+        Sage Intacct posts a JSON body to the subscriber endpoint when a
+        configured object operation occurs (Add, Set, Delete) or when an
+        outbound webhook subscription fires for a Create or Update on a
+        subscribed object type. Sage Intacct does not publish a single
+        canonical JSON Schema for the outbound payload across all object
+        types; the payload shape depends on the subscribed object and on the
+        Smart Event configuration (XML or HTTP POST body authored by the
+        Intacct administrator).
+      message:
+        oneOf:
+          - $ref: '#/components/messages/IntacctObjectAdded'
+          - $ref: '#/components/messages/IntacctObjectUpdated'
+          - $ref: '#/components/messages/IntacctObjectDeleted'
+  /sage/people/webhook:
+    description: |-
+      Subscriber endpoint that receives Sage People Employee webhook events.
+      Documented coverage is limited to the Employee object; the payload
+      delivers the Id of the affected Employee and subscribers fetch the
+      full record from the Sage People API.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receivePeopleEvent
+      summary: Receive a Sage People Employee webhook
+      description: |-
+        Sage People posts a notification to the subscriber endpoint when a
+        new Employee is created or an existing Employee is updated.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/PeopleEmployeeCreated'
+          - $ref: '#/components/messages/PeopleEmployeeUpdated'
+  /sage/cm/webhook:
+    description: |-
+      Subscriber endpoint that receives Sage Construction Management webhook
+      events. The administrator selects which feature(s) drive deliveries to
+      this path (Company, Lead, Project, Estimate, Prime Contract, Job Cost
+      Code, Labor Timecards, Equipment Timecards, Misc. Expenses, Project
+      Financial). The customer-defined security signature is delivered in
+      the request header and must be validated by the subscriber.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveConstructionManagementEvent
+      summary: Receive a Sage Construction Management feature webhook
+      description: |-
+        Sage Construction Management posts to the configured URL after a
+        feature action is performed in the application (for example, adding
+        a Company). The set of features that can drive webhook deliveries
+        mirrors the public API Reference feature list.
+      message:
+        $ref: '#/components/messages/ConstructionManagementFeatureEvent'
+  /sage/payments-out/webhook:
+    description: |-
+      Provider endpoint that receives Sage Payments Out provider webhook
+      notifications. The notification surface is documented as part of the
+      Provider API and is targeted at payment providers integrating with
+      Sage Payments Out.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receivePaymentsOutProviderNotification
+      summary: Receive a Sage Payments Out provider webhook notification
+      description: |-
+        Sage Payments Out posts a provider webhook notification to the
+        registered provider endpoint. The exact set of notification types
+        and their JSON Schemas are documented inside the Provider API
+        reference and are not fully reproduced here.
+      message:
+        $ref: '#/components/messages/PaymentsOutProviderNotification'
+
+components:
+  securitySchemes:
+    intacctSignature:
+      type: httpApiKey
+      in: header
+      name: X-Sage-Signature
+      description: |-
+        Sage Intacct delivers a signature on outbound webhook calls so the
+        subscriber can verify the call originated from Intacct. Sage does
+        not publish the exact header name or algorithm in a single public
+        location; the header name shown here is a placeholder for the
+        documented "signature on the call" mechanism and should be
+        configured to match the live Intacct delivery in production
+        integrations.
+    namedCredential:
+      type: userPassword
+      description: |-
+        Sage People webhooks authenticate to the subscriber endpoint using
+        the credentials defined on a Named Credential (Custom Metadata
+        Type) referenced by the Webhook object configured in the tenant.
+    cmSignature:
+      type: httpApiKey
+      in: header
+      name: X-Sage-CM-Signature
+      description: |-
+        Sage Construction Management delivers a customer-defined security
+        signature in the request header for every webhook invocation. The
+        signature value is configured by the administrator in the Webhook
+        tab and must be validated by the subscriber to authenticate the
+        call from Sage Construction Management. The header name shown is a
+        placeholder; the documented behaviour is "the signature will be in
+        the header whenever the webhook is called."
+  messages:
+    IntacctObjectAdded:
+      name: IntacctObjectAdded
+      title: Sage Intacct object Add event
+      summary: An object was created in Sage Intacct
+      description: |-
+        Delivered when a subscribed Intacct object is created. Smart Events
+        document the Add condition as "checked whenever a new record is
+        created." Outbound webhooks document object Create as a delivery
+        trigger.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IntacctEventEnvelope'
+    IntacctObjectUpdated:
+      name: IntacctObjectUpdated
+      title: Sage Intacct object Set event
+      summary: An object was updated in Sage Intacct
+      description: |-
+        Delivered when a subscribed Intacct object is updated. Smart Events
+        document the Set condition as "checked whenever a record is
+        changed." Outbound webhooks document object Update as a delivery
+        trigger.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IntacctEventEnvelope'
+    IntacctObjectDeleted:
+      name: IntacctObjectDeleted
+      title: Sage Intacct object Delete event
+      summary: An object was deleted in Sage Intacct
+      description: |-
+        Delivered when a subscribed Intacct object is deleted. Smart Events
+        document the Delete condition as "checked whenever a record is
+        deleted." Delete coverage in REST outbound webhooks is not
+        guaranteed for every object type.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IntacctEventEnvelope'
+    PeopleEmployeeCreated:
+      name: PeopleEmployeeCreated
+      title: Sage People Employee created
+      summary: A new Employee record was created in Sage People
+      description: |-
+        Delivered when a new Employee is created. The documented payload
+        contains the Id of the new Employee; subscribers fetch the full
+        record from the Sage People API.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PeopleEmployeeEvent'
+    PeopleEmployeeUpdated:
+      name: PeopleEmployeeUpdated
+      title: Sage People Employee updated
+      summary: An existing Employee record was updated in Sage People
+      description: |-
+        Delivered when an existing Employee is updated. The documented
+        payload contains the Id of the updated Employee; subscribers fetch
+        the current record from the Sage People API.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PeopleEmployeeEvent'
+    ConstructionManagementFeatureEvent:
+      name: ConstructionManagementFeatureEvent
+      title: Sage Construction Management feature event
+      summary: A configured feature action occurred in Sage Construction Management
+      description: |-
+        Delivered when an action occurs against a feature that has been
+        subscribed to webhook delivery. Sage does not publish a single
+        canonical event-type enum; the example given in the Getting Started
+        guide is Company creation triggering an external system update.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ConstructionManagementEventEnvelope'
+    PaymentsOutProviderNotification:
+      name: PaymentsOutProviderNotification
+      title: Sage Payments Out provider notification
+      summary: Provider webhook notification from Sage Payments Out
+      description: |-
+        Delivered to the provider endpoint registered with Sage Payments
+        Out. The exact set of notification types and their JSON Schemas are
+        documented in the Provider Webhook Messaging API reference.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PaymentsOutProviderEnvelope'
+  schemas:
+    IntacctEventEnvelope:
+      type: object
+      description: |-
+        Open envelope for a Sage Intacct outbound webhook or Smart Event
+        HTTP POST body. Sage does not publish a single canonical JSON
+        Schema for the outbound payload across object types and operations;
+        the actual body depends on the subscribed object (for example
+        ARINVOICE, SODOCUMENT) and on any administrator-authored template
+        in the Smart Event definition. Additional properties are therefore
+        permitted and no specific property names are fabricated here.
+      additionalProperties: true
+    PeopleEmployeeEvent:
+      type: object
+      description: |-
+        Sage People Employee event payload. The documented behaviour is
+        that the Id of the affected Employee is sent to the specified
+        endpoint; the remainder of the payload is not publicly specified.
+      additionalProperties: true
+      properties:
+        Id:
+          type: string
+          description: Identifier of the affected Sage People Employee record.
+    ConstructionManagementEventEnvelope:
+      type: object
+      description: |-
+        Open envelope for a Sage Construction Management webhook delivery.
+        Sage Construction Management does not publish a JSON Schema for the
+        outbound body in the public Getting Started documentation; the
+        envelope is therefore modelled as open and no field names are
+        fabricated.
+      additionalProperties: true
+    PaymentsOutProviderEnvelope:
+      type: object
+      description: |-
+        Open envelope for a Sage Payments Out provider webhook notification.
+        The Provider Webhook Messaging API reference defines the concrete
+        notification types and schemas; until those schemas are mirrored
+        into this AsyncAPI document the payload is modelled as open.
+      additionalProperties: true
