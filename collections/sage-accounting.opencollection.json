@@ -1,0 +1,602 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage Accounting API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.sageone.com/oauth2/auth",
+      "accessTokenUrl": "https://oauth.accounting.sage.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/contacts",
+            "params": [
+              {
+                "name": "contact_type_ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter by contact type IDs (CUSTOMER, SUPPLIER)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search contacts by name or reference"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of contacts (customers and suppliers). Supports filtering by contact type, search term, and date ranges."
+        },
+        {
+          "info": {
+            "name": "Create Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new customer or supplier contact."
+        },
+        {
+          "info": {
+            "name": "Get Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/contacts/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Contact unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns a specific contact by ID."
+        },
+        {
+          "info": {
+            "name": "Update Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.accounting.sage.com/v3.1/contacts/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing contact."
+        },
+        {
+          "info": {
+            "name": "Delete Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.accounting.sage.com/v3.1/contacts/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a contact if it has no associated transactions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sales Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sales Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by customer contact ID"
+              },
+              {
+                "name": "status_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of sales invoices."
+        },
+        {
+          "info": {
+            "name": "Create Sales Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new sales invoice for a customer."
+        },
+        {
+          "info": {
+            "name": "Get Sales Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific sales invoice by ID."
+        },
+        {
+          "info": {
+            "name": "Update Sales Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a draft sales invoice."
+        },
+        {
+          "info": {
+            "name": "Delete Sales Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Voids or deletes a sales invoice."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Purchase Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Purchase Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of purchase invoices (supplier bills)."
+        },
+        {
+          "info": {
+            "name": "Create Purchase Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new purchase invoice (supplier bill)."
+        },
+        {
+          "info": {
+            "name": "Get Purchase Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific purchase invoice by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Record Sales Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/sales_invoices/:key/payments",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records a payment received for a sales invoice."
+        },
+        {
+          "info": {
+            "name": "Record Purchase Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices/:key/payments",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Records a payment made for a purchase invoice."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bank Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bank Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/bank_accounts"
+          },
+          "docs": "Returns a list of bank accounts connected to the business."
+        },
+        {
+          "info": {
+            "name": "Create Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/bank_accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new bank account record."
+        },
+        {
+          "info": {
+            "name": "Get Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/bank_accounts/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific bank account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ledger Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Ledger Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/ledger_accounts",
+            "params": [
+              {
+                "name": "visible_in",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the chart of accounts (ledger accounts)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/products",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of products and services."
+        },
+        {
+          "info": {
+            "name": "Create Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new product or service."
+        },
+        {
+          "info": {
+            "name": "Get Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/products/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details of a specific product or service."
+        },
+        {
+          "info": {
+            "name": "Update Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.accounting.sage.com/v3.1/products/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing product or service."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tax Rates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tax Rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/tax_rates"
+          },
+          "docs": "Returns configured tax rates for the business."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Business",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Business Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/business"
+          },
+          "docs": "Returns the business profile and settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

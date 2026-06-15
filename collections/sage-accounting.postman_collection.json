@@ -1,0 +1,2848 @@
+{
+  "item": [
+    {
+      "id": "bcd4af6b-829d-4fa7-a28b-6afa814035da",
+      "name": "Contacts",
+      "description": {
+        "content": "Customer and supplier contact management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c3d7803-4d5c-4f1d-862b-d049add00446",
+          "name": "List Contacts",
+          "request": {
+            "name": "List Contacts",
+            "description": {
+              "content": "Returns a paginated list of contacts (customers and suppliers). Supports filtering by contact type, search term, and date ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_type_ids",
+                  "value": "<string>",
+                  "description": "Filter by contact type IDs (CUSTOMER, SUPPLIER)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search contacts by name or reference"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7ec4324-e4bc-40e2-bc60-82b66eb510eb",
+              "name": "List of contacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_type_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"reference\": \"string\",\n      \"contact_types\": [\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      ],\n      \"email\": \"68AHOkhpXJqA@kzKlGafkIPuvbXuwpfGPFWiQgbIhSKu.hc\",\n      \"telephone\": \"string\",\n      \"mobile\": \"string\",\n      \"website\": \"string\",\n      \"address\": {\n        \"address_line_1\": \"string\",\n        \"address_line_2\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      },\n      \"balance\": 3799.938766634353,\n      \"outstanding_balance\": 9955.027776063253,\n      \"created_at\": \"1955-08-18T15:58:50.816Z\",\n      \"updated_at\": \"1957-02-14T21:26:32.780Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"reference\": \"string\",\n      \"contact_types\": [\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      ],\n      \"email\": \"JqotN6K7XQQ@jXpGPjWuHu.dn\",\n      \"telephone\": \"string\",\n      \"mobile\": \"string\",\n      \"website\": \"string\",\n      \"address\": {\n        \"address_line_1\": \"string\",\n        \"address_line_2\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      },\n      \"balance\": 6512.949725093119,\n      \"outstanding_balance\": 7047.919385687294,\n      \"created_at\": \"1975-02-23T08:03:47.712Z\",\n      \"updated_at\": \"1976-06-23T09:56:49.309Z\"\n    }\n  ],\n  \"$total\": 9293,\n  \"$page\": 1994,\n  \"$next\": \"string\",\n  \"$back\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dbcc7ab-d3b8-451b-8a0c-83d8f2a5005b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_type_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60552e75-d61d-480c-8ff8-73e0c2a28a94",
+          "name": "Create Contact",
+          "request": {
+            "name": "Create Contact",
+            "description": {
+              "content": "Creates a new customer or supplier contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"contact_type_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"country_id\": \"<string>\"\n    }\n  },\n  \"name\": 7552\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42c1ab1f-719a-4116-a691-928463871766",
+              "name": "Contact created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"Acme Corporation\",\n    \"contact_type_ids\": [\n      \"CUSTOMER\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  },\n  \"name\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"sH7fN@BTIq.qbra\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 3634.3275592547443,\n  \"outstanding_balance\": 7789.502390282572,\n  \"created_at\": \"1954-05-06T16:12:06.602Z\",\n  \"updated_at\": \"1981-03-28T00:26:56.490Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f10b2358-5a9e-41f8-9b54-60f02b6420ac",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"Acme Corporation\",\n    \"contact_type_ids\": [\n      \"CUSTOMER\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  },\n  \"name\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4640f0c7-aaba-4909-9d4a-9f3f3c8f320b",
+          "name": "Get Contact",
+          "request": {
+            "name": "Get Contact",
+            "description": {
+              "content": "Returns a specific contact by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Contact unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "495bdb13-2494-485b-b35f-68cfffa85a2e",
+              "name": "Contact details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Contact unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"sH7fN@BTIq.qbra\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 3634.3275592547443,\n  \"outstanding_balance\": 7789.502390282572,\n  \"created_at\": \"1954-05-06T16:12:06.602Z\",\n  \"updated_at\": \"1981-03-28T00:26:56.490Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48521aa6-52d9-445c-a248-5d3a721aa051",
+              "name": "Contact not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Contact unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0760c9b-2f4b-42aa-948b-3c6d9e41ff07",
+          "name": "Update Contact",
+          "request": {
+            "name": "Update Contact",
+            "description": {
+              "content": "Updates an existing contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"country_id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b80a446-cb28-43cc-b4ef-0d64c528e54e",
+              "name": "Contact updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"sH7fN@BTIq.qbra\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 3634.3275592547443,\n  \"outstanding_balance\": 7789.502390282572,\n  \"created_at\": \"1954-05-06T16:12:06.602Z\",\n  \"updated_at\": \"1981-03-28T00:26:56.490Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96e4d961-e5c7-45fc-9e0e-79640c8d5fe8",
+          "name": "Delete Contact",
+          "request": {
+            "name": "Delete Contact",
+            "description": {
+              "content": "Deletes a contact if it has no associated transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32503cb8-849e-4c39-b6d8-9ff19c4997db",
+              "name": "Contact deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d1fd9b20-1ab8-4c2c-9b65-7d601b6a70e7",
+      "name": "Sales Invoices",
+      "description": {
+        "content": "Sales invoice creation and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "068ec224-0aa1-40f1-ae88-3e2a31457d46",
+          "name": "List Sales Invoices",
+          "request": {
+            "name": "List Sales Invoices",
+            "description": {
+              "content": "Returns a paginated list of sales invoices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_id",
+                  "value": "<string>",
+                  "description": "Filter by customer contact ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d39a4e7d-0731-447d-982c-2abbe57883b8",
+              "name": "Sales invoice list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"date\": \"1946-12-14\",\n      \"due_date\": \"1967-07-11\",\n      \"reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 1153.3879068926922,\n          \"unit_price\": 4484.202921921871,\n          \"net_amount\": 9188.260794304522,\n          \"tax_amount\": 1625.2373216954097,\n          \"total_amount\": 9187.07292010258,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 886.9651095011122,\n          \"unit_price\": 2352.3029342905775,\n          \"net_amount\": 641.1192178258085,\n          \"tax_amount\": 2898.525739736394,\n          \"total_amount\": 3991.168179073478,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 4933.858959981447,\n      \"tax_amount\": 7350.636823000034,\n      \"total_amount\": 5219.298512601542,\n      \"outstanding_amount\": 6093.335995394827,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"date\": \"2016-02-07\",\n      \"due_date\": \"1977-05-11\",\n      \"reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 8486.11625457372,\n          \"unit_price\": 3692.1962833828557,\n          \"net_amount\": 1088.4771213068234,\n          \"tax_amount\": 6812.856527617985,\n          \"total_amount\": 9196.00750510356,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 2235.820468028331,\n          \"unit_price\": 7563.278146140151,\n          \"net_amount\": 3753.1596661213216,\n          \"tax_amount\": 7221.846025407799,\n          \"total_amount\": 8899.794132861352,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 3437.9591675453203,\n      \"tax_amount\": 5248.600761592365,\n      \"total_amount\": 5604.663265606915,\n      \"outstanding_amount\": 5955.397663099956,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"$total\": 5905,\n  \"$page\": 3075\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e02bb48c-c596-4757-b8d4-95f3a190f79a",
+          "name": "Create Sales Invoice",
+          "request": {
+            "name": "Create Sales Invoice",
+            "description": {
+              "content": "Creates a new sales invoice for a customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sales_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0a2e2dc-2dde-4fb3-982f-b13d30eb9d0b",
+              "name": "Sales invoice created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sales_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 8449.291471727533,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 9305.541602838377,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"2023-09-02\",\n  \"due_date\": \"2011-10-23\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 6044.91253556091,\n      \"unit_price\": 5097.751468330439,\n      \"net_amount\": 9627.035982607553,\n      \"tax_amount\": 6368.617662094239,\n      \"total_amount\": 8570.851239262747,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 5469.5898348569945,\n      \"unit_price\": 8969.698822751689,\n      \"net_amount\": 1286.5112299615744,\n      \"tax_amount\": 3556.332784615941,\n      \"total_amount\": 9813.522874415776,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 8413.551428540753,\n  \"tax_amount\": 1181.3231268611612,\n  \"total_amount\": 3291.4507915459035,\n  \"outstanding_amount\": 5978.127539630122,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0834c572-b239-4863-a7e1-675218884040",
+          "name": "Get Sales Invoice",
+          "request": {
+            "name": "Get Sales Invoice",
+            "description": {
+              "content": "Returns a specific sales invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "664b6539-c615-4431-ac58-cddafd838dbc",
+              "name": "Sales invoice details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"2023-09-02\",\n  \"due_date\": \"2011-10-23\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 6044.91253556091,\n      \"unit_price\": 5097.751468330439,\n      \"net_amount\": 9627.035982607553,\n      \"tax_amount\": 6368.617662094239,\n      \"total_amount\": 8570.851239262747,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 5469.5898348569945,\n      \"unit_price\": 8969.698822751689,\n      \"net_amount\": 1286.5112299615744,\n      \"tax_amount\": 3556.332784615941,\n      \"total_amount\": 9813.522874415776,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 8413.551428540753,\n  \"tax_amount\": 1181.3231268611612,\n  \"total_amount\": 3291.4507915459035,\n  \"outstanding_amount\": 5978.127539630122,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02979610-532f-4e51-81b1-af41dd82d925",
+          "name": "Update Sales Invoice",
+          "request": {
+            "name": "Update Sales Invoice",
+            "description": {
+              "content": "Updates a draft sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sales_invoice\": {\n    \"date\": \"<date>\",\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "401e42da-bfda-4a84-a607-7fbbe093669b",
+              "name": "Invoice updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sales_invoice\": {\n    \"date\": \"<date>\",\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 1204.3703602154822,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 840.8351105814182,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"2023-09-02\",\n  \"due_date\": \"2011-10-23\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 6044.91253556091,\n      \"unit_price\": 5097.751468330439,\n      \"net_amount\": 9627.035982607553,\n      \"tax_amount\": 6368.617662094239,\n      \"total_amount\": 8570.851239262747,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 5469.5898348569945,\n      \"unit_price\": 8969.698822751689,\n      \"net_amount\": 1286.5112299615744,\n      \"tax_amount\": 3556.332784615941,\n      \"total_amount\": 9813.522874415776,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 8413.551428540753,\n  \"tax_amount\": 1181.3231268611612,\n  \"total_amount\": 3291.4507915459035,\n  \"outstanding_amount\": 5978.127539630122,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b209d31-3734-41cc-979e-e8ce5210e6b7",
+          "name": "Delete Sales Invoice",
+          "request": {
+            "name": "Delete Sales Invoice",
+            "description": {
+              "content": "Voids or deletes a sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "447711c9-59c5-4d43-9225-822009c0920e",
+              "name": "Invoice deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9a80dfa6-b7ba-419c-94eb-6db8e7f6c177",
+      "name": "Purchase Invoices",
+      "description": {
+        "content": "Purchase invoice and supplier bill management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e58a4d0a-4e25-4877-a1da-c0abac67a34e",
+          "name": "List Purchase Invoices",
+          "request": {
+            "name": "List Purchase Invoices",
+            "description": {
+              "content": "Returns a paginated list of purchase invoices (supplier bills).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0045d858-124e-4cd9-8e08-3e36d0a2cb4e",
+              "name": "Purchase invoice list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"date\": \"1986-08-26\",\n      \"due_date\": \"1973-10-09\",\n      \"reference\": \"string\",\n      \"vendor_reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 328.167716755724,\n          \"unit_price\": 2182.065192988072,\n          \"net_amount\": 8467.107534508605,\n          \"tax_amount\": 6535.230276606294,\n          \"total_amount\": 7327.17145163019,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 4783.876398619163,\n          \"unit_price\": 3981.8094069524177,\n          \"net_amount\": 4111.889451176405,\n          \"tax_amount\": 7375.846387028876,\n          \"total_amount\": 4273.005583712805,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 8984.26450463358,\n      \"tax_amount\": 1748.1592401974299,\n      \"total_amount\": 2559.558468673957,\n      \"outstanding_amount\": 766.7947707692701\n    },\n    {\n      \"id\": \"string\",\n      \"date\": \"1959-03-12\",\n      \"due_date\": \"2013-12-24\",\n      \"reference\": \"string\",\n      \"vendor_reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 5505.263754665104,\n          \"unit_price\": 1039.4628859767151,\n          \"net_amount\": 6602.362917369567,\n          \"tax_amount\": 2100.9651427003228,\n          \"total_amount\": 7546.864516832486,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 4920.466272628299,\n          \"unit_price\": 8043.120690862987,\n          \"net_amount\": 2542.9031817020186,\n          \"tax_amount\": 1317.2997679183206,\n          \"total_amount\": 8764.151049762622,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 3423.1211641141977,\n      \"tax_amount\": 1451.2519949616565,\n      \"total_amount\": 7640.408228815717,\n      \"outstanding_amount\": 274.6120057109569\n    }\n  ],\n  \"$total\": 2023\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0a3e467-cbf8-4e64-ae20-a339ba402338",
+          "name": "Create Purchase Invoice",
+          "request": {
+            "name": "Create Purchase Invoice",
+            "description": {
+              "content": "Creates a new purchase invoice (supplier bill).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"vendor_reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ccd3a8b-8879-48b3-8d4f-f100cd1003cd",
+              "name": "Purchase invoice created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchase_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 805.7015936719736,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 9486.018123196041,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"vendor_reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"2016-12-28\",\n  \"due_date\": \"1962-06-06\",\n  \"reference\": \"string\",\n  \"vendor_reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 8821.464888301016,\n      \"unit_price\": 7254.3116885917225,\n      \"net_amount\": 4869.982389375408,\n      \"tax_amount\": 2766.770894266619,\n      \"total_amount\": 911.8727295918361,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 9514.585308211002,\n      \"unit_price\": 2159.858253215257,\n      \"net_amount\": 3649.223980836137,\n      \"tax_amount\": 5096.913895089937,\n      \"total_amount\": 3111.4518048363047,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 3314.231270678413,\n  \"tax_amount\": 7079.021249078558,\n  \"total_amount\": 7309.240575011811,\n  \"outstanding_amount\": 5000.888466061846\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c81913b-befd-4b03-a298-afa34a399e1e",
+          "name": "Get Purchase Invoice",
+          "request": {
+            "name": "Get Purchase Invoice",
+            "description": {
+              "content": "Returns a specific purchase invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bd67328-ae90-4323-8807-0bfc347f6862",
+              "name": "Purchase invoice details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"2016-12-28\",\n  \"due_date\": \"1962-06-06\",\n  \"reference\": \"string\",\n  \"vendor_reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 8821.464888301016,\n      \"unit_price\": 7254.3116885917225,\n      \"net_amount\": 4869.982389375408,\n      \"tax_amount\": 2766.770894266619,\n      \"total_amount\": 911.8727295918361,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 9514.585308211002,\n      \"unit_price\": 2159.858253215257,\n      \"net_amount\": 3649.223980836137,\n      \"tax_amount\": 5096.913895089937,\n      \"total_amount\": 3111.4518048363047,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 3314.231270678413,\n  \"tax_amount\": 7079.021249078558,\n  \"total_amount\": 7309.240575011811,\n  \"outstanding_amount\": 5000.888466061846\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "330f0234-fce5-4f9e-a0a7-82e81436669e",
+      "name": "Payments",
+      "description": {
+        "content": "Customer and supplier payment recording",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e77a91cb-1f7e-41f1-b2c2-b997db8c2766",
+          "name": "Record Sales Payment",
+          "request": {
+            "name": "Record Sales Payment",
+            "description": {
+              "content": "Records a payment received for a sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f8065e6-44d5-4eac-bb4a-07a9d480719a",
+              "name": "Payment recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"1960-05-16\",\n  \"amount\": 1432.2446572275649,\n  \"reference\": \"string\",\n  \"bank_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e6c7f05-0345-4c12-b1c5-43046b551bfc",
+          "name": "Record Purchase Payment",
+          "request": {
+            "name": "Record Purchase Payment",
+            "description": {
+              "content": "Records a payment made for a purchase invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices",
+                ":key",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b681e58c-2da2-4de3-a829-bd029f7c9d6a",
+              "name": "Payment recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices",
+                    ":key",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"1960-05-16\",\n  \"amount\": 1432.2446572275649,\n  \"reference\": \"string\",\n  \"bank_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3de4bee4-cd68-45d2-ac91-c4d746d8d8ff",
+      "name": "Bank Accounts",
+      "description": {
+        "content": "Bank account and transaction management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8064337b-5705-4fdb-a0b3-eb06c51e1456",
+          "name": "List Bank Accounts",
+          "request": {
+            "name": "List Bank Accounts",
+            "description": {
+              "content": "Returns a list of bank accounts connected to the business.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "872cc26b-08f9-48c3-9f3f-700f2125cbd4",
+              "name": "Bank account list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"balance\": 5947.447049677027,\n      \"bank_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"balance\": 2270.806652276042,\n      \"bank_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c392c7b-3cf6-44c4-a1bb-2c5217d0c8e6",
+          "name": "Create Bank Account",
+          "request": {
+            "name": "Create Bank Account",
+            "description": {
+              "content": "Creates a new bank account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bank_account\": {\n    \"name\": \"<string>\",\n    \"bank_account_type_id\": \"<string>\",\n    \"nominal_code\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f847749-70da-4344-ac24-8d9efdbbfc15",
+              "name": "Bank account created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bank_account\": {\n    \"name\": \"<string>\",\n    \"bank_account_type_id\": \"<string>\",\n    \"nominal_code\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"nominal_code\": \"string\",\n  \"balance\": 0.3066104805427017,\n  \"bank_account_type\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e53a427-4ea8-49c5-a527-21a975feab69",
+          "name": "Get Bank Account",
+          "request": {
+            "name": "Get Bank Account",
+            "description": {
+              "content": "Returns details of a specific bank account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74d2d3b4-8b83-460b-92aa-36e945004843",
+              "name": "Bank account details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"nominal_code\": \"string\",\n  \"balance\": 0.3066104805427017,\n  \"bank_account_type\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0d39a6d0-eede-4ff0-a88a-645f5601d819",
+      "name": "Ledger Accounts",
+      "description": {
+        "content": "Chart of accounts and ledger management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6394c5b4-dc68-4945-be70-56c130f7ac64",
+          "name": "List Ledger Accounts",
+          "request": {
+            "name": "List Ledger Accounts",
+            "description": {
+              "content": "Returns the chart of accounts (ledger accounts).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ledger_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "visible_in",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7433b11-c4b7-4ea1-b883-833809595c1a",
+              "name": "Ledger account list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ledger_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "visible_in",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"ledger_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"is_control_account\": true\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"ledger_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"is_control_account\": true\n    }\n  ],\n  \"$total\": 5383\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "31d72ddf-37a5-4d43-b4ef-3dae13a4ae4a",
+      "name": "Products",
+      "description": {
+        "content": "Product and service catalog management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f365097e-ff86-49d0-9d7a-e94df729155e",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {
+              "content": "Returns a paginated list of products and services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5af79688-33ec-4eec-842d-950b1d90c59a",
+              "name": "Product list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"description\": \"string\",\n      \"item_code\": \"string\",\n      \"sales_prices\": [\n        {\n          \"price\": 2121.1747542795188,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 5093.611913206385,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"purchase_prices\": [\n        {\n          \"price\": 7069.306924229583,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 978.4598836945546,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"sales_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"purchase_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"description\": \"string\",\n      \"item_code\": \"string\",\n      \"sales_prices\": [\n        {\n          \"price\": 7404.076279536269,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 9024.50206987122,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"purchase_prices\": [\n        {\n          \"price\": 5029.173905113075,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 4978.3763454459095,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"sales_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"purchase_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"$total\": 877\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcd80ef3-d551-41ba-99ab-43b0b9293b8b",
+          "name": "Create Product",
+          "request": {
+            "name": "Create Product",
+            "description": {
+              "content": "Creates a new product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      },\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      }\n    ],\n    \"sales_ledger_account_id\": \"<string>\",\n    \"tax_rate_id\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b65aec00-6d62-407b-b675-94bd6fc9ed5a",
+              "name": "Product created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": 9053.65826882423,\n        \"currency_id\": \"string\"\n      },\n      {\n        \"price\": 3431.7898851556915,\n        \"currency_id\": \"string\"\n      }\n    ],\n    \"sales_ledger_account_id\": \"<string>\",\n    \"tax_rate_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 362.4590164058417,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 4309.812221433494,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 5994.621782017894,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9273.759136393706,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45aaa227-d955-4b5b-aecb-b2403a6098bc",
+          "name": "Get Product",
+          "request": {
+            "name": "Get Product",
+            "description": {
+              "content": "Returns details of a specific product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b68553b3-ce3d-4056-86f3-1a68f9121b5d",
+              "name": "Product details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 362.4590164058417,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 4309.812221433494,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 5994.621782017894,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9273.759136393706,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9688200-cb82-4093-8f13-3667e0b45061",
+          "name": "Update Product",
+          "request": {
+            "name": "Update Product",
+            "description": {
+              "content": "Updates an existing product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      },\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c5ebbed4-49b7-4e8b-9693-976d0545bd42",
+              "name": "Product updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": 3101.525933947649,\n        \"currency_id\": \"string\"\n      },\n      {\n        \"price\": 6236.468225465382,\n        \"currency_id\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 362.4590164058417,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 4309.812221433494,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 5994.621782017894,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9273.759136393706,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ab2aecb8-d589-4b3c-bf0f-5099286d12f6",
+      "name": "Tax Rates",
+      "description": {
+        "content": "Tax rate configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4225a5c-fcc8-4f52-9040-1bf36238a2f3",
+          "name": "List Tax Rates",
+          "request": {
+            "name": "List Tax Rates",
+            "description": {
+              "content": "Returns configured tax rates for the business.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tax_rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17717ffd-87b7-4365-bc7b-bf73eb9a11d1",
+              "name": "Tax rate list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax_rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"percentage\": 2867.680529445611,\n      \"is_combined_tax_rate\": false\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"percentage\": 1322.525064919492,\n      \"is_combined_tax_rate\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "997f9ed6-b6ce-4df4-80fd-f44fe4361001",
+      "name": "Business",
+      "description": {
+        "content": "Business settings and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f359395d-ee7c-4661-9196-42a2fdf4ebad",
+          "name": "Get Business Settings",
+          "request": {
+            "name": "Get Business Settings",
+            "description": {
+              "content": "Returns the business profile and settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "business"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db11d2ea-1a50-411a-a100-d6c1cc49ff59",
+              "name": "Business settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"registration_number\": \"string\",\n  \"tax_number\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"financial_year_start_date\": \"1954-10-21\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5dfba5bf-b911-4736-b779-eff5911703a9",
+    "name": "Sage Accounting API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
