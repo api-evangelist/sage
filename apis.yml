@@ -105,6 +105,10 @@ apis:
   - type: Documentation
     url: https://developer.sage.com/sage-50-accounts/
 common:
+- type: Authentication
+  url: authentication/sage-authentication.yml
+- type: OAuthScopes
+  url: scopes/sage-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/sage-software
 - type: Portal
