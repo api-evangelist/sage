@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sage-accounting-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.sageone.com/oauth2/auth
+    tokenUrl: https://oauth.accounting.sage.com/token
+    scopes: 2
+  sources:
+  - openapi/sage-accounting-openapi.yml
