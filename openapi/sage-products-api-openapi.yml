@@ -1,0 +1,228 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Products API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Products
+  description: Product and service catalog management
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      summary: List Products
+      description: Returns a paginated list of products and services.
+      tags:
+      - Products
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: items_per_page
+        in: query
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          description: Product list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+    post:
+      operationId: createProduct
+      summary: Create Product
+      description: Creates a new product or service.
+      tags:
+      - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductRequest'
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{key}:
+    get:
+      operationId: getProduct
+      summary: Get Product
+      description: Returns details of a specific product or service.
+      tags:
+      - Products
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      operationId: updateProduct
+      summary: Update Product
+      description: Updates an existing product or service.
+      tags:
+      - Products
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProductRequest'
+      responses:
+        '200':
+          description: Product updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Price:
+      type: object
+      properties:
+        price:
+          type: number
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+    CurrencyRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    CreateProductRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          required:
+          - description
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+            sales_ledger_account_id:
+              type: string
+            tax_rate_id:
+              type: string
+    TaxRateRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    PriceInput:
+      type: object
+      properties:
+        price:
+          type: number
+        currency_id:
+          type: string
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        description:
+          type: string
+        item_code:
+          type: string
+        sales_prices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        purchase_prices:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        sales_ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        purchase_ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+    UpdateProductRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+    ProductList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        $total:
+          type: integer
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data

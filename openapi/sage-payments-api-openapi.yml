@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Payments API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Payments
+  description: Customer and supplier payment recording
+paths:
+  /sales_invoices/{key}/payments:
+    post:
+      operationId: recordSalesPayment
+      summary: Record Sales Payment
+      description: Records a payment received for a sales invoice.
+      tags:
+      - Payments
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '201':
+          description: Payment recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+  /purchase_invoices/{key}/payments:
+    post:
+      operationId: recordPurchasePayment
+      summary: Record Purchase Payment
+      description: Records a payment made for a purchase invoice.
+      tags:
+      - Payments
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '201':
+          description: Payment recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+components:
+  schemas:
+    PaymentRequest:
+      type: object
+      properties:
+        payment:
+          type: object
+          required:
+          - payment_type_id
+          - bank_account_id
+          - date
+          - amount
+          properties:
+            payment_type_id:
+              type: string
+              enum:
+              - PAYMENT
+              - CREDIT
+            bank_account_id:
+              type: string
+            date:
+              type: string
+              format: date
+            amount:
+              type: number
+              format: double
+            reference:
+              type: string
+    BankAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        amount:
+          type: number
+        reference:
+          type: string
+        bank_account:
+          $ref: '#/components/schemas/BankAccountRef'
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data

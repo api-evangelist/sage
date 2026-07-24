@@ -1,0 +1,316 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Contacts API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Contacts
+  description: Customer and supplier contact management
+paths:
+  /contacts:
+    get:
+      operationId: listContacts
+      summary: List Contacts
+      description: Returns a paginated list of contacts (customers and suppliers). Supports filtering by contact type, search term, and date ranges.
+      tags:
+      - Contacts
+      parameters:
+      - name: contact_type_ids
+        in: query
+        schema:
+          type: string
+        description: Filter by contact type IDs (CUSTOMER, SUPPLIER)
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search contacts by name or reference
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: items_per_page
+        in: query
+        schema:
+          type: integer
+          default: 20
+          maximum: 200
+      responses:
+        '200':
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactList'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      operationId: createContact
+      summary: Create Contact
+      description: Creates a new customer or supplier contact.
+      tags:
+      - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateContactRequest'
+      responses:
+        '201':
+          description: Contact created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /contacts/{key}:
+    get:
+      operationId: getContact
+      summary: Get Contact
+      description: Returns a specific contact by ID.
+      tags:
+      - Contacts
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Contact unique identifier
+      responses:
+        '200':
+          description: Contact details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '404':
+          description: Contact not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      operationId: updateContact
+      summary: Update Contact
+      description: Updates an existing contact.
+      tags:
+      - Contacts
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContactRequest'
+      responses:
+        '200':
+          description: Contact updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    delete:
+      operationId: deleteContact
+      summary: Delete Contact
+      description: Deletes a contact if it has no associated transactions.
+      tags:
+      - Contacts
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Contact deleted
+components:
+  schemas:
+    UpdateContactRequest:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    CreateContactRequest:
+      type: object
+      required:
+      - name
+      - contact_type_ids
+      properties:
+        contact:
+          type: object
+          required:
+          - name
+          - contact_type_ids
+          properties:
+            name:
+              type: string
+              example: Acme Corporation
+            contact_type_ids:
+              type: array
+              items:
+                type: string
+              example:
+              - CUSTOMER
+            email:
+              type: string
+              format: email
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+    ContactList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        $total:
+          type: integer
+        $page:
+          type: integer
+        $next:
+          type: string
+          nullable: true
+        $back:
+          type: string
+          nullable: true
+    Address:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryRef'
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+          description: Display name
+        name:
+          type: string
+        reference:
+          type: string
+        contact_types:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              displayed_as:
+                type: string
+        email:
+          type: string
+          format: email
+        telephone:
+          type: string
+        mobile:
+          type: string
+        website:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        balance:
+          type: number
+        outstanding_balance:
+          type: number
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    AddressInput:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country_id:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        $problems:
+          type: array
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+              message:
+                type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data

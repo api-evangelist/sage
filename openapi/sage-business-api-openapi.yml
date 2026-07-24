@@ -1,0 +1,93 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Business API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Business
+  description: Business settings and configuration
+paths:
+  /business:
+    get:
+      operationId: getBusinessSettings
+      summary: Get Business Settings
+      description: Returns the business profile and settings.
+      tags:
+      - Business
+      responses:
+        '200':
+          description: Business settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Business'
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryRef'
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    CurrencyRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    Business:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        registration_number:
+          type: string
+        tax_number:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+        financial_year_start_date:
+          type: string
+          format: date
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data

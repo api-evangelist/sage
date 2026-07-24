@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Ledger Accounts API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Ledger Accounts
+  description: Chart of accounts and ledger management
+paths:
+  /ledger_accounts:
+    get:
+      operationId: listLedgerAccounts
+      summary: List Ledger Accounts
+      description: Returns the chart of accounts (ledger accounts).
+      tags:
+      - Ledger Accounts
+      parameters:
+      - name: visible_in
+        in: query
+        schema:
+          type: string
+          enum:
+          - sales
+          - purchasing
+          - banking
+          - other
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: Ledger account list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LedgerAccountList'
+components:
+  schemas:
+    LedgerAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        name:
+          type: string
+        nominal_code:
+          type: string
+        ledger_account_type:
+          $ref: '#/components/schemas/TypeRef'
+        is_control_account:
+          type: boolean
+    LedgerAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LedgerAccount'
+        $total:
+          type: integer
+    TypeRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data

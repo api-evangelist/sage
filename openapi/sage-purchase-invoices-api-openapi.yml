@@ -1,0 +1,242 @@
+openapi: 3.1.0
+info:
+  title: Sage Accounting Bank Accounts Purchase Invoices API
+  description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
+  version: 3.1.0
+  contact:
+    name: Sage Developer Support
+    url: https://developer.sage.com/support/
+  license:
+    name: Sage Developer Agreement
+    url: https://developer.sage.com/
+servers:
+- url: https://api.accounting.sage.com/v3.1
+  description: Sage Accounting API v3.1
+security:
+- OAuth2: []
+tags:
+- name: Purchase Invoices
+  description: Purchase invoice and supplier bill management
+paths:
+  /purchase_invoices:
+    get:
+      operationId: listPurchaseInvoices
+      summary: List Purchase Invoices
+      description: Returns a paginated list of purchase invoices (supplier bills).
+      tags:
+      - Purchase Invoices
+      parameters:
+      - name: contact_id
+        in: query
+        schema:
+          type: string
+      - name: status_id
+        in: query
+        schema:
+          type: string
+          enum:
+          - DRAFT
+          - SENT
+          - PAID
+          - VOID
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: items_per_page
+        in: query
+        schema:
+          type: integer
+          default: 20
+      responses:
+        '200':
+          description: Purchase invoice list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoiceList'
+    post:
+      operationId: createPurchaseInvoice
+      summary: Create Purchase Invoice
+      description: Creates a new purchase invoice (supplier bill).
+      tags:
+      - Purchase Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePurchaseInvoiceRequest'
+      responses:
+        '201':
+          description: Purchase invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoice'
+  /purchase_invoices/{key}:
+    get:
+      operationId: getPurchaseInvoice
+      summary: Get Purchase Invoice
+      description: Returns a specific purchase invoice by ID.
+      tags:
+      - Purchase Invoices
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Purchase invoice details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInvoice'
+components:
+  schemas:
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+    LineItemInput:
+      type: object
+      required:
+      - description
+      - quantity
+      - unit_price
+      - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
+    TaxRateRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    CreatePurchaseInvoiceRequest:
+      type: object
+      properties:
+        purchase_invoice:
+          type: object
+          required:
+          - contact_id
+          - date
+          - line_items
+          properties:
+            contact_id:
+              type: string
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            vendor_reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
+    StatusRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    ContactRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    PurchaseInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
+    PurchaseInvoice:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        due_date:
+          type: string
+          format: date
+        reference:
+          type: string
+        vendor_reference:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusRef'
+        contact:
+          $ref: '#/components/schemas/ContactRef'
+        line_items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        outstanding_amount:
+          type: number
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.sageone.com/oauth2/auth
+          tokenUrl: https://oauth.accounting.sage.com/token
+          scopes:
+            full_access: Full read/write access to all accounting data
+            readonly: Read-only access to accounting data
