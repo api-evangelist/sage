@@ -1,0 +1,30 @@
+{
+  "provider": "sage",
+  "sources": [
+    "sage-bank-accounts-api-openapi.yml",
+    "sage-business-api-openapi.yml",
+    "sage-contacts-api-openapi.yml",
+    "sage-ledger-accounts-api-openapi.yml",
+    "sage-payments-api-openapi.yml",
+    "sage-products-api-openapi.yml",
+    "sage-purchase-invoices-api-openapi.yml",
+    "sage-sales-invoices-api-openapi.yml",
+    "sage-tax-rates-api-openapi.yml"
+  ],
+  "outputs": [
+    "sage-bank-accounts-api-openapi.yml",
+    "sage-business-api-openapi.yml",
+    "sage-contacts-api-openapi.yml",
+    "sage-ledger-accounts-api-openapi.yml",
+    "sage-payments-api-openapi.yml",
+    "sage-products-api-openapi.yml",
+    "sage-purchase-invoices-api-openapi.yml",
+    "sage-sales-invoices-api-openapi.yml",
+    "sage-tax-rates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
