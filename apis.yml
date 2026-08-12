@@ -246,7 +246,7 @@ common:
 - type: GitHubOrganization
   url: https://github.com/Sage
 - type: OpenAPI
-  url: openapi/sage-accounting-openapi.yml
+  url: openapi/_original/sage-accounting-openapi.yml
 - type: AsyncAPI
   url: asyncapi/sage-webhooks-asyncapi.yml
 - type: SpectralRules
@@ -263,8 +263,6 @@ common:
   url: json-ld/sage-context.jsonld
 - type: Vocabulary
   url: vocabulary/sage-vocabulary.yml
-- type: Capabilities
-  url: capabilities/accounting-and-finance.yaml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
