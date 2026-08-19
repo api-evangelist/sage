@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "e3d0948b-c5da-4c5c-9c17-6ed63a7b1910",
+      "name": "Products",
+      "description": {
+        "content": "Product and service catalog management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd81711f-8ac3-4118-a91d-fa5b5d704f17",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {
+              "content": "Returns a paginated list of products and services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b87cb333-1c32-4c77-ae4e-11a59e84a6ef",
+              "name": "Product list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"description\": \"string\",\n      \"item_code\": \"string\",\n      \"sales_prices\": [\n        {\n          \"price\": 9382.550964423182,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 3361.8960783010766,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"purchase_prices\": [\n        {\n          \"price\": 4982.402095599756,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 4958.272444660232,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"sales_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"purchase_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"description\": \"string\",\n      \"item_code\": \"string\",\n      \"sales_prices\": [\n        {\n          \"price\": 5544.005113918751,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 213.88602042803905,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"purchase_prices\": [\n        {\n          \"price\": 3092.3949244576697,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"price\": 9554.132545000233,\n          \"currency\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"sales_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"purchase_ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"$total\": 3016\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6d04c98-3782-445b-81d5-ba5efb2e5d67",
+          "name": "Create Product",
+          "request": {
+            "name": "Create Product",
+            "description": {
+              "content": "Creates a new product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      },\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      }\n    ],\n    \"sales_ledger_account_id\": \"<string>\",\n    \"tax_rate_id\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "524b0eb7-288d-4dfa-a807-0e99170635e9",
+              "name": "Product created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": 1997.2765559939799,\n        \"currency_id\": \"string\"\n      },\n      {\n        \"price\": 4418.188056351757,\n        \"currency_id\": \"string\"\n      }\n    ],\n    \"sales_ledger_account_id\": \"<string>\",\n    \"tax_rate_id\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 8692.370126239783,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 1577.8857940257874,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 6556.614303591122,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9523.202763027535,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c343ea7e-114a-4cef-9c98-50060c512860",
+          "name": "Get Product",
+          "request": {
+            "name": "Get Product",
+            "description": {
+              "content": "Returns details of a specific product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c915f9f-1db7-45d8-a30b-39f893d2f877",
+              "name": "Product details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 8692.370126239783,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 1577.8857940257874,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 6556.614303591122,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9523.202763027535,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f962903c-fbd1-41eb-adac-1ae89af9594d",
+          "name": "Update Product",
+          "request": {
+            "name": "Update Product",
+            "description": {
+              "content": "Updates an existing product or service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      },\n      {\n        \"price\": \"<number>\",\n        \"currency_id\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85dd1cd1-449f-4095-becf-d017d537fefe",
+              "name": "Product updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product\": {\n    \"description\": \"<string>\",\n    \"item_code\": \"<string>\",\n    \"sales_prices\": [\n      {\n        \"price\": 7936.9977930319155,\n        \"currency_id\": \"string\"\n      },\n      {\n        \"price\": 3091.217512300486,\n        \"currency_id\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"description\": \"string\",\n  \"item_code\": \"string\",\n  \"sales_prices\": [\n    {\n      \"price\": 8692.370126239783,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 1577.8857940257874,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"purchase_prices\": [\n    {\n      \"price\": 6556.614303591122,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"price\": 9523.202763027535,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"sales_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"purchase_ledger_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"tax_rate\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b2f4e74-4be9-4fbb-9851-9b305b02d5a7",
+    "name": "Sage Accounting Bank Accounts Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

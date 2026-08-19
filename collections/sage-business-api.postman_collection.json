@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "a071c3dc-4fb1-48b6-871f-86d469f11420",
+      "name": "Business",
+      "description": {
+        "content": "Business settings and configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46d954f5-9a52-4f70-b9ee-5e121c820368",
+          "name": "Get Business Settings",
+          "request": {
+            "name": "Get Business Settings",
+            "description": {
+              "content": "Returns the business profile and settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "business"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9551c22-97e7-4b28-b2ba-9a4c8afdeeab",
+              "name": "Business settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "business"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"registration_number\": \"string\",\n  \"tax_number\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"financial_year_start_date\": \"1973-12-15\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ff39cb0a-ab53-41e6-863c-d32b2deaaa33",
+    "name": "Sage Accounting Bank Accounts Business API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

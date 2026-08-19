@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage Accounting Bank Accounts Business API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.sageone.com/oauth2/auth",
+      "accessTokenUrl": "https://oauth.accounting.sage.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Business Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/business"
+          },
+          "docs": "Returns the business profile and settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

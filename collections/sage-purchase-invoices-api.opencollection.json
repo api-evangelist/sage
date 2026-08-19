@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sage Accounting Bank Accounts Purchase Invoices API",
+    "version": "3.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://www.sageone.com/oauth2/auth",
+      "accessTokenUrl": "https://oauth.accounting.sage.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Purchase Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Purchase Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices",
+            "params": [
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items_per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of purchase invoices (supplier bills)."
+        },
+        {
+          "info": {
+            "name": "Create Purchase Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new purchase invoice (supplier bill)."
+        },
+        {
+          "info": {
+            "name": "Get Purchase Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accounting.sage.com/v3.1/purchase_invoices/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a specific purchase invoice by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

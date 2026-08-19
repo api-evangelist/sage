@@ -1,0 +1,326 @@
+{
+  "item": [
+    {
+      "id": "8255dcb6-e3f8-4355-8309-7a065564d12d",
+      "name": "Bank Accounts",
+      "description": {
+        "content": "Bank account and transaction management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b94a0dd5-4821-40d6-b3df-ec270c1316ad",
+          "name": "List Bank Accounts",
+          "request": {
+            "name": "List Bank Accounts",
+            "description": {
+              "content": "Returns a list of bank accounts connected to the business.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81d3552b-8d22-4bf7-aca5-796271d3605c",
+              "name": "Bank account list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"balance\": 4073.4124628083655,\n      \"bank_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"nominal_code\": \"string\",\n      \"balance\": 7278.005328106573,\n      \"bank_account_type\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ce39d8e-bfb9-4991-afc9-d406cf5bd586",
+          "name": "Create Bank Account",
+          "request": {
+            "name": "Create Bank Account",
+            "description": {
+              "content": "Creates a new bank account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bank_account\": {\n    \"name\": \"<string>\",\n    \"bank_account_type_id\": \"<string>\",\n    \"nominal_code\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bacf2e93-445e-449d-91e2-a4943f9d9041",
+              "name": "Bank account created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bank_account\": {\n    \"name\": \"<string>\",\n    \"bank_account_type_id\": \"<string>\",\n    \"nominal_code\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"nominal_code\": \"string\",\n  \"balance\": 4434.246123731786,\n  \"bank_account_type\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4990f745-a9e1-4d2d-9dd4-872a08837606",
+          "name": "Get Bank Account",
+          "request": {
+            "name": "Get Bank Account",
+            "description": {
+              "content": "Returns details of a specific bank account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bank_accounts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f24be3e2-8fee-4d77-bb48-e108ee169b94",
+              "name": "Bank account details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bank_accounts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"nominal_code\": \"string\",\n  \"balance\": 4434.246123731786,\n  \"bank_account_type\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f47dce7d-1d9f-475b-af35-c99b6e6ee37e",
+    "name": "Sage Accounting Bank Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

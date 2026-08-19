@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "1d76934a-68f7-4d48-bdbe-d1e892505bc2",
+      "name": "Purchase Invoices",
+      "description": {
+        "content": "Purchase invoice and supplier bill management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e671cd5-6fd9-4606-8190-77fe2bcddc53",
+          "name": "List Purchase Invoices",
+          "request": {
+            "name": "List Purchase Invoices",
+            "description": {
+              "content": "Returns a paginated list of purchase invoices (supplier bills).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5041dd6f-4180-431c-91f2-156a1ec31e47",
+              "name": "Purchase invoice list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"date\": \"1988-08-03\",\n      \"due_date\": \"1959-08-04\",\n      \"reference\": \"string\",\n      \"vendor_reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 693.952332333968,\n          \"unit_price\": 5031.951134169751,\n          \"net_amount\": 4907.778755502824,\n          \"tax_amount\": 6847.475181210143,\n          \"total_amount\": 2478.4834564119396,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 8582.397343845189,\n          \"unit_price\": 4616.901707649074,\n          \"net_amount\": 4778.306429189362,\n          \"tax_amount\": 6376.767210163442,\n          \"total_amount\": 4202.704152621161,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 35.90413118218838,\n      \"tax_amount\": 3919.4079797181635,\n      \"total_amount\": 2196.381385345898,\n      \"outstanding_amount\": 2564.632918352189\n    },\n    {\n      \"id\": \"string\",\n      \"date\": \"1962-02-05\",\n      \"due_date\": \"1961-11-16\",\n      \"reference\": \"string\",\n      \"vendor_reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 3340.4247067067117,\n          \"unit_price\": 7776.893997566013,\n          \"net_amount\": 3210.277667748572,\n          \"tax_amount\": 2189.4921918363298,\n          \"total_amount\": 888.7617214511112,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 1227.4508902782056,\n          \"unit_price\": 3698.0033417562295,\n          \"net_amount\": 2870.479351306442,\n          \"tax_amount\": 8780.392239871337,\n          \"total_amount\": 6710.372574821477,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 712.9141793502425,\n      \"tax_amount\": 8290.666256699094,\n      \"total_amount\": 581.5992137754445,\n      \"outstanding_amount\": 285.5967567967632\n    }\n  ],\n  \"$total\": 331\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cf0d38e-6d6f-4a89-8dad-b57a09d4d172",
+          "name": "Create Purchase Invoice",
+          "request": {
+            "name": "Create Purchase Invoice",
+            "description": {
+              "content": "Creates a new purchase invoice (supplier bill).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"vendor_reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8bfcc91-f713-4c7d-8c1f-27e3e16053ec",
+              "name": "Purchase invoice created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"purchase_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 5916.351864461472,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 9208.069865854995,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"vendor_reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"1981-08-02\",\n  \"due_date\": \"1978-12-24\",\n  \"reference\": \"string\",\n  \"vendor_reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 1048.1502678586219,\n      \"unit_price\": 7747.94175549009,\n      \"net_amount\": 6330.808345053083,\n      \"tax_amount\": 9159.019099760097,\n      \"total_amount\": 5816.2090023601595,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 5225.243141913135,\n      \"unit_price\": 8738.13832801071,\n      \"net_amount\": 5725.3109216563125,\n      \"tax_amount\": 4289.560177429072,\n      \"total_amount\": 1817.6425488136072,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 3002.26512958643,\n  \"tax_amount\": 156.72023602368412,\n  \"total_amount\": 4238.031044349398,\n  \"outstanding_amount\": 3558.642955615041\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc822fa0-083a-4224-9751-8293db68aae3",
+          "name": "Get Purchase Invoice",
+          "request": {
+            "name": "Get Purchase Invoice",
+            "description": {
+              "content": "Returns a specific purchase invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a718da22-a7d0-4c1d-8b3c-ac5c659ca228",
+              "name": "Purchase invoice details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"1981-08-02\",\n  \"due_date\": \"1978-12-24\",\n  \"reference\": \"string\",\n  \"vendor_reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 1048.1502678586219,\n      \"unit_price\": 7747.94175549009,\n      \"net_amount\": 6330.808345053083,\n      \"tax_amount\": 9159.019099760097,\n      \"total_amount\": 5816.2090023601595,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 5225.243141913135,\n      \"unit_price\": 8738.13832801071,\n      \"net_amount\": 5725.3109216563125,\n      \"tax_amount\": 4289.560177429072,\n      \"total_amount\": 1817.6425488136072,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 3002.26512958643,\n  \"tax_amount\": 156.72023602368412,\n  \"total_amount\": 4238.031044349398,\n  \"outstanding_amount\": 3558.642955615041\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c99a61c3-453c-4d06-b189-4c34b04d4f55",
+    "name": "Sage Accounting Bank Accounts Purchase Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

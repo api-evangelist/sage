@@ -1,0 +1,291 @@
+{
+  "item": [
+    {
+      "id": "f461472e-ea2f-45ec-b3d7-ad19a4ede960",
+      "name": "Payments",
+      "description": {
+        "content": "Customer and supplier payment recording",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd5db3a2-35c0-4950-8ac5-366709bbe299",
+          "name": "Record Sales Payment",
+          "request": {
+            "name": "Record Sales Payment",
+            "description": {
+              "content": "Records a payment received for a sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7163f59f-f346-416c-801d-0d04a291b71f",
+              "name": "Payment recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"2011-05-03\",\n  \"amount\": 7060.971211308226,\n  \"reference\": \"string\",\n  \"bank_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b2b91c4-d0d5-46f3-ab5c-505e493bbc91",
+          "name": "Record Purchase Payment",
+          "request": {
+            "name": "Record Purchase Payment",
+            "description": {
+              "content": "Records a payment made for a purchase invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "purchase_invoices",
+                ":key",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "356d454d-cdca-4244-93b5-7052cbb9c64c",
+              "name": "Payment recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "purchase_invoices",
+                    ":key",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"payment_type_id\": \"<string>\",\n    \"bank_account_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"amount\": \"<double>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"date\": \"2011-05-03\",\n  \"amount\": 7060.971211308226,\n  \"reference\": \"string\",\n  \"bank_account\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5707395c-3b93-4ff0-b993-f7b00b83081c",
+    "name": "Sage Accounting Bank Accounts Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

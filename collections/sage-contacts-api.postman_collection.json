@@ -1,0 +1,732 @@
+{
+  "item": [
+    {
+      "id": "94a221f1-a443-4445-91cd-e6688f276722",
+      "name": "Contacts",
+      "description": {
+        "content": "Customer and supplier contact management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce0a79a5-fbca-4e29-94d6-51adaf8aac1e",
+          "name": "List Contacts",
+          "request": {
+            "name": "List Contacts",
+            "description": {
+              "content": "Returns a paginated list of contacts (customers and suppliers). Supports filtering by contact type, search term, and date ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_type_ids",
+                  "value": "<string>",
+                  "description": "Filter by contact type IDs (CUSTOMER, SUPPLIER)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search contacts by name or reference"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ffa2fba4-4285-463e-8b11-4ae8b9a1837c",
+              "name": "List of contacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_type_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"reference\": \"string\",\n      \"contact_types\": [\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      ],\n      \"email\": \"lm6LjeqLK@hHKKcSmELmMttSsHMLolW.cko\",\n      \"telephone\": \"string\",\n      \"mobile\": \"string\",\n      \"website\": \"string\",\n      \"address\": {\n        \"address_line_1\": \"string\",\n        \"address_line_2\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      },\n      \"balance\": 8433.280986502037,\n      \"outstanding_balance\": 9614.617622332547,\n      \"created_at\": \"2004-04-11T15:41:02.066Z\",\n      \"updated_at\": \"2004-04-12T12:51:54.501Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"reference\": \"string\",\n      \"contact_types\": [\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      ],\n      \"email\": \"pt7BmjV@GVKaVWQsoXZ.ro\",\n      \"telephone\": \"string\",\n      \"mobile\": \"string\",\n      \"website\": \"string\",\n      \"address\": {\n        \"address_line_1\": \"string\",\n        \"address_line_2\": \"string\",\n        \"city\": \"string\",\n        \"region\": \"string\",\n        \"postal_code\": \"string\",\n        \"country\": {\n          \"id\": \"string\",\n          \"displayed_as\": \"string\"\n        }\n      },\n      \"balance\": 543.1039525895343,\n      \"outstanding_balance\": 793.3287996616012,\n      \"created_at\": \"1960-10-28T17:42:28.214Z\",\n      \"updated_at\": \"2022-12-02T17:23:52.932Z\"\n    }\n  ],\n  \"$total\": 8757,\n  \"$page\": 1945,\n  \"$next\": \"string\",\n  \"$back\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77dfa1ec-e8d3-44fa-99c0-ee881b31bda8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_type_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b772cb84-e5d7-4f04-801e-e47c8aec7789",
+          "name": "Create Contact",
+          "request": {
+            "name": "Create Contact",
+            "description": {
+              "content": "Creates a new customer or supplier contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"contact_type_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"country_id\": \"<string>\"\n    }\n  },\n  \"name\": 8334.8882445619\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a6b773f-4fb2-456f-9440-9790a257a809",
+              "name": "Contact created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"Acme Corporation\",\n    \"contact_type_ids\": [\n      \"CUSTOMER\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  },\n  \"name\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"DXI-kvOV@j.db\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 1876.7397468530055,\n  \"outstanding_balance\": 464.7615743574995,\n  \"created_at\": \"1986-01-03T17:54:52.927Z\",\n  \"updated_at\": \"1983-01-08T05:47:49.851Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d8a6f24-e6d0-4f35-b0b2-d5a0a4c77f3b",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"Acme Corporation\",\n    \"contact_type_ids\": [\n      \"CUSTOMER\"\n    ],\n    \"email\": \"<email>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  },\n  \"name\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ececcae-4b10-449a-86e8-8a41473adccc",
+          "name": "Get Contact",
+          "request": {
+            "name": "Get Contact",
+            "description": {
+              "content": "Returns a specific contact by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Contact unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3d38a0f-9fcc-4675-bc07-e13c434d070e",
+              "name": "Contact details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Contact unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"DXI-kvOV@j.db\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 1876.7397468530055,\n  \"outstanding_balance\": 464.7615743574995,\n  \"created_at\": \"1986-01-03T17:54:52.927Z\",\n  \"updated_at\": \"1983-01-08T05:47:49.851Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f8f1144-f376-470e-9f8a-134ba563a4f0",
+              "name": "Contact not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Contact unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$problems\": [\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"dataPath\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e38f18e5-a091-4de2-9937-28ff302f3dbe",
+          "name": "Update Contact",
+          "request": {
+            "name": "Update Contact",
+            "description": {
+              "content": "Updates an existing contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"<string>\",\n      \"address_line_2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postal_code\": \"<string>\",\n      \"country_id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0db8de1b-0539-4f5b-89c1-d93ea53ac10a",
+              "name": "Contact updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"telephone\": \"<string>\",\n    \"address\": {\n      \"address_line_1\": \"string\",\n      \"address_line_2\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postal_code\": \"string\",\n      \"country_id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"name\": \"string\",\n  \"reference\": \"string\",\n  \"contact_types\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  ],\n  \"email\": \"DXI-kvOV@j.db\",\n  \"telephone\": \"string\",\n  \"mobile\": \"string\",\n  \"website\": \"string\",\n  \"address\": {\n    \"address_line_1\": \"string\",\n    \"address_line_2\": \"string\",\n    \"city\": \"string\",\n    \"region\": \"string\",\n    \"postal_code\": \"string\",\n    \"country\": {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\"\n    }\n  },\n  \"balance\": 1876.7397468530055,\n  \"outstanding_balance\": 464.7615743574995,\n  \"created_at\": \"1986-01-03T17:54:52.927Z\",\n  \"updated_at\": \"1983-01-08T05:47:49.851Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5cba4cd-69a5-4aab-9193-88b56891f193",
+          "name": "Delete Contact",
+          "request": {
+            "name": "Delete Contact",
+            "description": {
+              "content": "Deletes a contact if it has no associated transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c64daecb-b338-4359-9ef6-dcd9a3ec6fdd",
+              "name": "Contact deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "274419d5-ba66-434f-b266-ea33d30d77b8",
+    "name": "Sage Accounting Bank Accounts Contacts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

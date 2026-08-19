@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "6d366d5e-1216-45d4-9085-23563836d759",
+      "name": "Tax Rates",
+      "description": {
+        "content": "Tax rate configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3404619-4443-48fd-b004-2c001b171eb1",
+          "name": "List Tax Rates",
+          "request": {
+            "name": "List Tax Rates",
+            "description": {
+              "content": "Returns configured tax rates for the business.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tax_rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06e86f0d-db61-4531-b60a-c57089872f84",
+              "name": "Tax rate list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tax_rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"percentage\": 5502.542585454454,\n      \"is_combined_tax_rate\": false\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"name\": \"string\",\n      \"percentage\": 8128.636153618869,\n      \"is_combined_tax_rate\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9897b1ef-05f1-449c-ac38-6e3307ddbabc",
+    "name": "Sage Accounting Bank Accounts Tax Rates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

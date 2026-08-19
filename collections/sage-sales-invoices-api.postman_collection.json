@@ -1,0 +1,586 @@
+{
+  "item": [
+    {
+      "id": "08ec17fc-2d10-45ca-9dc5-4ebba16cca03",
+      "name": "Sales Invoices",
+      "description": {
+        "content": "Sales invoice creation and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7d604af-f040-45b3-88b1-4aa59ccf49d6",
+          "name": "List Sales Invoices",
+          "request": {
+            "name": "List Sales Invoices",
+            "description": {
+              "content": "Returns a paginated list of sales invoices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contact_id",
+                  "value": "<string>",
+                  "description": "Filter by customer contact ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "status_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to_date",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "items_per_page",
+                  "value": "20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb79df18-df1d-4e11-8e0b-c9eee752e723",
+              "name": "Sales invoice list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "items_per_page",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$items\": [\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"date\": \"1977-08-07\",\n      \"due_date\": \"2024-10-17\",\n      \"reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 5356.191124210642,\n          \"unit_price\": 6869.321029757249,\n          \"net_amount\": 5404.960704497401,\n          \"tax_amount\": 2533.5880263070276,\n          \"total_amount\": 8363.656207537259,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 7308.743344852155,\n          \"unit_price\": 9744.506099678236,\n          \"net_amount\": 2064.5113876141486,\n          \"tax_amount\": 2050.7473625503326,\n          \"total_amount\": 7181.229400280664,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 2265.122409067402,\n      \"tax_amount\": 2414.716551560666,\n      \"total_amount\": 2271.438617358341,\n      \"outstanding_amount\": 1373.5801487793665,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayed_as\": \"string\",\n      \"date\": \"1990-05-27\",\n      \"due_date\": \"2016-03-30\",\n      \"reference\": \"string\",\n      \"status\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"contact\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 823.3672401320069,\n          \"unit_price\": 2039.102638226815,\n          \"net_amount\": 6298.9087838708,\n          \"tax_amount\": 6865.460479958927,\n          \"total_amount\": 9553.428193887388,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"description\": \"string\",\n          \"quantity\": 1711.2930043914355,\n          \"unit_price\": 7776.099556335141,\n          \"net_amount\": 5826.3307561163365,\n          \"tax_amount\": 6982.055344468181,\n          \"total_amount\": 4656.815661992885,\n          \"ledger_account\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          },\n          \"tax_rate\": {\n            \"id\": \"string\",\n            \"displayed_as\": \"string\"\n          }\n        }\n      ],\n      \"net_amount\": 8427.3139659049,\n      \"tax_amount\": 8172.472901006176,\n      \"total_amount\": 8163.958347362359,\n      \"outstanding_amount\": 7599.512106399537,\n      \"currency\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"$total\": 5059,\n  \"$page\": 7688\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aabe9e4-211e-44df-b19d-e5bc5700b01d",
+          "name": "Create Sales Invoice",
+          "request": {
+            "name": "Create Sales Invoice",
+            "description": {
+              "content": "Creates a new sales invoice for a customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sales_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4261a9f-7295-40a6-aefb-3d1540740bd7",
+              "name": "Sales invoice created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sales_invoice\": {\n    \"contact_id\": \"<string>\",\n    \"date\": \"<date>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 7635.810629665024,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 6733.709516142774,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ],\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"1952-09-28\",\n  \"due_date\": \"2014-05-27\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 8900.139643590292,\n      \"unit_price\": 2021.251956230966,\n      \"net_amount\": 9586.137297812646,\n      \"tax_amount\": 8810.26041066568,\n      \"total_amount\": 4617.373563473343,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 9555.820652941817,\n      \"unit_price\": 6599.372344590988,\n      \"net_amount\": 6881.712028185472,\n      \"tax_amount\": 5523.800712879625,\n      \"total_amount\": 6767.308384407988,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 1217.6670057781114,\n  \"tax_amount\": 658.2891518095124,\n  \"total_amount\": 6063.6711508271,\n  \"outstanding_amount\": 933.7917390465456,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd19f3fa-a9ca-48e3-a1ef-0865ba5279a3",
+          "name": "Get Sales Invoice",
+          "request": {
+            "name": "Get Sales Invoice",
+            "description": {
+              "content": "Returns a specific sales invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b9cb3dd-3ce5-4dc2-887b-5c91f764a195",
+              "name": "Sales invoice details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"1952-09-28\",\n  \"due_date\": \"2014-05-27\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 8900.139643590292,\n      \"unit_price\": 2021.251956230966,\n      \"net_amount\": 9586.137297812646,\n      \"tax_amount\": 8810.26041066568,\n      \"total_amount\": 4617.373563473343,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 9555.820652941817,\n      \"unit_price\": 6599.372344590988,\n      \"net_amount\": 6881.712028185472,\n      \"tax_amount\": 5523.800712879625,\n      \"total_amount\": 6767.308384407988,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 1217.6670057781114,\n  \"tax_amount\": 658.2891518095124,\n  \"total_amount\": 6063.6711508271,\n  \"outstanding_amount\": 933.7917390465456,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ce413bc-7da2-4ae5-b5fd-54f750e3fbef",
+          "name": "Update Sales Invoice",
+          "request": {
+            "name": "Update Sales Invoice",
+            "description": {
+              "content": "Updates a draft sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sales_invoice\": {\n    \"date\": \"<date>\",\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\",\n    \"line_items\": [\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      },\n      {\n        \"description\": \"<string>\",\n        \"quantity\": 1,\n        \"unit_price\": \"<double>\",\n        \"ledger_account_id\": \"<string>\",\n        \"tax_rate_id\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ac0b6b0-1582-4d80-8b8f-0859f1a375aa",
+              "name": "Invoice updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sales_invoice\": {\n    \"date\": \"<date>\",\n    \"due_date\": \"<date>\",\n    \"reference\": \"<string>\",\n    \"line_items\": [\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 6304.000575762741,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      },\n      {\n        \"description\": \"string\",\n        \"quantity\": 1,\n        \"unit_price\": 5628.90786467229,\n        \"ledger_account_id\": \"string\",\n        \"tax_rate_id\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayed_as\": \"string\",\n  \"date\": \"1952-09-28\",\n  \"due_date\": \"2014-05-27\",\n  \"reference\": \"string\",\n  \"status\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"contact\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  },\n  \"line_items\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 8900.139643590292,\n      \"unit_price\": 2021.251956230966,\n      \"net_amount\": 9586.137297812646,\n      \"tax_amount\": 8810.26041066568,\n      \"total_amount\": 4617.373563473343,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"quantity\": 9555.820652941817,\n      \"unit_price\": 6599.372344590988,\n      \"net_amount\": 6881.712028185472,\n      \"tax_amount\": 5523.800712879625,\n      \"total_amount\": 6767.308384407988,\n      \"ledger_account\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      },\n      \"tax_rate\": {\n        \"id\": \"string\",\n        \"displayed_as\": \"string\"\n      }\n    }\n  ],\n  \"net_amount\": 1217.6670057781114,\n  \"tax_amount\": 658.2891518095124,\n  \"total_amount\": 6063.6711508271,\n  \"outstanding_amount\": 933.7917390465456,\n  \"currency\": {\n    \"id\": \"string\",\n    \"displayed_as\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcc2721c-f012-4cc8-aa81-b5f6ac844f64",
+          "name": "Delete Sales Invoice",
+          "request": {
+            "name": "Delete Sales Invoice",
+            "description": {
+              "content": "Voids or deletes a sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sales_invoices",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b311b969-a98b-43ed-9097-71cc8e1b91ff",
+              "name": "Invoice deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sales_invoices",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accounting.sage.com/v3.1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "full_access readonly"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth.accounting.sage.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.sageone.com/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "483fcaf0-7709-4b6d-8b94-d1c5b8ab279c",
+    "name": "Sage Accounting Bank Accounts Sales Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.\n\nContact Support:\n Name: Sage Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
