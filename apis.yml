@@ -47,6 +47,12 @@ apis:
   - ERP
   - REST
   - XML
+  - Authentication
+  tags_raw:
+  - Accounting
+  - ERP
+  - REST
+  - XML
   - OAuth 2.0
   properties:
   - type: Documentation
@@ -169,6 +175,8 @@ apis:
   description: Product and service catalog management
   humanURL: https://developer.sage.com/accounting
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
