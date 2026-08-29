@@ -7,6 +7,17 @@ description: >-
   accounts, bank accounts, products, and financial reporting. Sage Accounting API v3.1 is the current supported REST
   version with daily limits of 1,296,000 requests per app.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
