@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Sage Accounting Bank Accounts Purchase Invoices API
+  title: Sage Accounting Purchase Invoices API
   description: 'Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage''s cloud accounting platform. Supports Sage Business Cloud Accounting and Sage Business Cloud Start products. Covers contacts, sales and purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reporting. Uses OAuth 2.0 for authentication. Rate limits apply: 1,296,000 daily requests, 150 concurrent, 100 per minute per company.'
   version: 3.1.0
   contact:
@@ -97,6 +97,42 @@ paths:
                 $ref: '#/components/schemas/PurchaseInvoice'
 components:
   schemas:
+    PurchaseInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    LineItemInput:
+      type: object
+      required:
+      - description
+      - quantity
+      - unit_price
+      - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
     LineItem:
       type: object
       properties:
@@ -118,27 +154,7 @@ components:
           $ref: '#/components/schemas/LedgerAccountRef'
         tax_rate:
           $ref: '#/components/schemas/TaxRateRef'
-    LineItemInput:
-      type: object
-      required:
-      - description
-      - quantity
-      - unit_price
-      - ledger_account_id
-      properties:
-        description:
-          type: string
-        quantity:
-          type: number
-          default: 1
-        unit_price:
-          type: number
-          format: double
-        ledger_account_id:
-          type: string
-        tax_rate_id:
-          type: string
-    TaxRateRef:
+    StatusRef:
       type: object
       properties:
         id:
@@ -169,7 +185,7 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/LineItemInput'
-    StatusRef:
+    TaxRateRef:
       type: object
       properties:
         id:
@@ -183,15 +199,6 @@ components:
           type: string
         displayed_as:
           type: string
-    PurchaseInvoiceList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PurchaseInvoice'
-        $total:
-          type: integer
     PurchaseInvoice:
       type: object
       properties:
@@ -223,13 +230,6 @@ components:
           type: number
         outstanding_amount:
           type: number
-    LedgerAccountRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

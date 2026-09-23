@@ -1,15 +1,7 @@
 {
   "provider": "sage",
   "sources": [
-    "sage-bank-accounts-api-openapi.yml",
-    "sage-business-api-openapi.yml",
-    "sage-contacts-api-openapi.yml",
-    "sage-ledger-accounts-api-openapi.yml",
-    "sage-payments-api-openapi.yml",
-    "sage-products-api-openapi.yml",
-    "sage-purchase-invoices-api-openapi.yml",
-    "sage-sales-invoices-api-openapi.yml",
-    "sage-tax-rates-api-openapi.yml"
+    "_original/sage-accounting-openapi.yml"
   ],
   "outputs": [
     "sage-bank-accounts-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sage-accounting-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "sage-bank-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-business-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-ledger-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-purchase-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-sales-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "sage-tax-rates-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
