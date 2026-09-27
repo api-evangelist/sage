@@ -97,22 +97,6 @@ paths:
                 $ref: '#/components/schemas/PurchaseInvoice'
 components:
   schemas:
-    PurchaseInvoiceList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PurchaseInvoice'
-        $total:
-          type: integer
-    LedgerAccountRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     LineItemInput:
       type: object
       required:
@@ -154,13 +138,22 @@ components:
           $ref: '#/components/schemas/LedgerAccountRef'
         tax_rate:
           $ref: '#/components/schemas/TaxRateRef'
-    StatusRef:
+    ContactRef:
       type: object
       properties:
         id:
           type: string
         displayed_as:
           type: string
+    PurchaseInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
     CreatePurchaseInvoiceRequest:
       type: object
       properties:
@@ -185,14 +178,14 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/LineItemInput'
-    TaxRateRef:
+    StatusRef:
       type: object
       properties:
         id:
           type: string
         displayed_as:
           type: string
-    ContactRef:
+    TaxRateRef:
       type: object
       properties:
         id:
@@ -230,6 +223,13 @@ components:
           type: number
         outstanding_amount:
           type: number
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

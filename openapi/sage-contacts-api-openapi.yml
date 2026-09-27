@@ -154,35 +154,19 @@ paths:
           description: Contact deleted
 components:
   schemas:
-    CreateContactRequest:
+    ErrorResponse:
       type: object
-      required:
-      - name
-      - contact_type_ids
       properties:
-        contact:
-          type: object
-          required:
-          - name
-          - contact_type_ids
-          properties:
-            name:
-              type: string
-              example: Acme Corporation
-            contact_type_ids:
-              type: array
-              items:
+        $problems:
+          type: array
+          items:
+            type: object
+            properties:
+              dataPath:
                 type: string
-              example:
-              - CUSTOMER
-            email:
-              type: string
-              format: email
-            telephone:
-              type: string
-            address:
-              $ref: '#/components/schemas/AddressInput'
-    AddressInput:
+              message:
+                type: string
+    Address:
       type: object
       properties:
         address_line_1:
@@ -195,22 +179,8 @@ components:
           type: string
         postal_code:
           type: string
-        country_id:
-          type: string
-    UpdateContactRequest:
-      type: object
-      properties:
-        contact:
-          type: object
-          properties:
-            name:
-              type: string
-            email:
-              type: string
-            telephone:
-              type: string
-            address:
-              $ref: '#/components/schemas/AddressInput'
+        country:
+          $ref: '#/components/schemas/CountryRef'
     Contact:
       type: object
       properties:
@@ -270,7 +240,7 @@ components:
         $back:
           type: string
           nullable: true
-    Address:
+    AddressInput:
       type: object
       properties:
         address_line_1:
@@ -283,20 +253,8 @@ components:
           type: string
         postal_code:
           type: string
-        country:
-          $ref: '#/components/schemas/CountryRef'
-    ErrorResponse:
-      type: object
-      properties:
-        $problems:
-          type: array
-          items:
-            type: object
-            properties:
-              dataPath:
-                type: string
-              message:
-                type: string
+        country_id:
+          type: string
     CountryRef:
       type: object
       properties:
@@ -304,6 +262,48 @@ components:
           type: string
         displayed_as:
           type: string
+    CreateContactRequest:
+      type: object
+      required:
+      - name
+      - contact_type_ids
+      properties:
+        contact:
+          type: object
+          required:
+          - name
+          - contact_type_ids
+          properties:
+            name:
+              type: string
+              example: Acme Corporation
+            contact_type_ids:
+              type: array
+              items:
+                type: string
+              example:
+              - CUSTOMER
+            email:
+              type: string
+              format: email
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+    UpdateContactRequest:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
   securitySchemes:
     OAuth2:
       type: oauth2

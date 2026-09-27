@@ -79,6 +79,20 @@ components:
           type: string
         displayed_as:
           type: string
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+        amount:
+          type: number
+        reference:
+          type: string
+        bank_account:
+          $ref: '#/components/schemas/BankAccountRef'
     PaymentRequest:
       type: object
       properties:
@@ -105,20 +119,6 @@ components:
               format: double
             reference:
               type: string
-    Payment:
-      type: object
-      properties:
-        id:
-          type: string
-        date:
-          type: string
-          format: date
-        amount:
-          type: number
-        reference:
-          type: string
-        bank_account:
-          $ref: '#/components/schemas/BankAccountRef'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -73,27 +73,6 @@ paths:
                 $ref: '#/components/schemas/BankAccount'
 components:
   schemas:
-    CurrencyRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    TypeRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    BankAccountList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/BankAccount'
     BankAccount:
       type: object
       properties:
@@ -111,6 +90,27 @@ components:
           $ref: '#/components/schemas/TypeRef'
         currency:
           $ref: '#/components/schemas/CurrencyRef'
+    BankAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccount'
+    CurrencyRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    TypeRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
     CreateBankAccountRequest:
       type: object
       properties:

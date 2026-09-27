@@ -113,27 +113,6 @@ paths:
                 $ref: '#/components/schemas/Product'
 components:
   schemas:
-    LedgerAccountRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    Price:
-      type: object
-      properties:
-        price:
-          type: number
-        currency:
-          $ref: '#/components/schemas/CurrencyRef'
-    CurrencyRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     CreateProductRequest:
       type: object
       properties:
@@ -154,20 +133,29 @@ components:
               type: string
             tax_rate_id:
               type: string
-    PriceInput:
+    UpdateProductRequest:
       type: object
       properties:
-        price:
-          type: number
-        currency_id:
-          type: string
-    TaxRateRef:
+        product:
+          type: object
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+    ProductList:
       type: object
       properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        $total:
+          type: integer
     Product:
       type: object
       properties:
@@ -193,29 +181,41 @@ components:
           $ref: '#/components/schemas/LedgerAccountRef'
         tax_rate:
           $ref: '#/components/schemas/TaxRateRef'
-    ProductList:
+    CurrencyRef:
       type: object
       properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        $total:
-          type: integer
-    UpdateProductRequest:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    Price:
       type: object
       properties:
-        product:
-          type: object
-          properties:
-            description:
-              type: string
-            item_code:
-              type: string
-            sales_prices:
-              type: array
-              items:
-                $ref: '#/components/schemas/PriceInput'
+        price:
+          type: number
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+    TaxRateRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    PriceInput:
+      type: object
+      properties:
+        price:
+          type: number
+        currency_id:
+          type: string
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
