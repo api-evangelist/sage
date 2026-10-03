@@ -97,87 +97,6 @@ paths:
                 $ref: '#/components/schemas/PurchaseInvoice'
 components:
   schemas:
-    LineItemInput:
-      type: object
-      required:
-      - description
-      - quantity
-      - unit_price
-      - ledger_account_id
-      properties:
-        description:
-          type: string
-        quantity:
-          type: number
-          default: 1
-        unit_price:
-          type: number
-          format: double
-        ledger_account_id:
-          type: string
-        tax_rate_id:
-          type: string
-    LineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        quantity:
-          type: number
-        unit_price:
-          type: number
-        net_amount:
-          type: number
-        tax_amount:
-          type: number
-        total_amount:
-          type: number
-        ledger_account:
-          $ref: '#/components/schemas/LedgerAccountRef'
-        tax_rate:
-          $ref: '#/components/schemas/TaxRateRef'
-    ContactRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    PurchaseInvoiceList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PurchaseInvoice'
-        $total:
-          type: integer
-    CreatePurchaseInvoiceRequest:
-      type: object
-      properties:
-        purchase_invoice:
-          type: object
-          required:
-          - contact_id
-          - date
-          - line_items
-          properties:
-            contact_id:
-              type: string
-            date:
-              type: string
-              format: date
-            due_date:
-              type: string
-              format: date
-            vendor_reference:
-              type: string
-            line_items:
-              type: array
-              items:
-                $ref: '#/components/schemas/LineItemInput'
     StatusRef:
       type: object
       properties:
@@ -223,6 +142,87 @@ components:
           type: number
         outstanding_amount:
           type: number
+    ContactRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    LineItemInput:
+      type: object
+      required:
+      - description
+      - quantity
+      - unit_price
+      - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
+    PurchaseInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
+    CreatePurchaseInvoiceRequest:
+      type: object
+      properties:
+        purchase_invoice:
+          type: object
+          required:
+          - contact_id
+          - date
+          - line_items
+          properties:
+            contact_id:
+              type: string
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            vendor_reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
     LedgerAccountRef:
       type: object
       properties:

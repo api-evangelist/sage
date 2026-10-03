@@ -56,15 +56,6 @@ components:
           type: string
         displayed_as:
           type: string
-    LedgerAccountList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/LedgerAccount'
-        $total:
-          type: integer
     LedgerAccount:
       type: object
       properties:
@@ -80,6 +71,15 @@ components:
           $ref: '#/components/schemas/TypeRef'
         is_control_account:
           type: boolean
+    LedgerAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LedgerAccount'
+        $total:
+          type: integer
   securitySchemes:
     OAuth2:
       type: oauth2

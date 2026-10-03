@@ -148,6 +148,20 @@ paths:
           description: Invoice deleted
 components:
   schemas:
+    StatusRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    TaxRateRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
     UpdateSalesInvoiceRequest:
       type: object
       properties:
@@ -166,103 +180,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/LineItemInput'
-    LineItemInput:
-      type: object
-      required:
-      - description
-      - quantity
-      - unit_price
-      - ledger_account_id
-      properties:
-        description:
-          type: string
-        quantity:
-          type: number
-          default: 1
-        unit_price:
-          type: number
-          format: double
-        ledger_account_id:
-          type: string
-        tax_rate_id:
-          type: string
-    LineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        quantity:
-          type: number
-        unit_price:
-          type: number
-        net_amount:
-          type: number
-        tax_amount:
-          type: number
-        total_amount:
-          type: number
-        ledger_account:
-          $ref: '#/components/schemas/LedgerAccountRef'
-        tax_rate:
-          $ref: '#/components/schemas/TaxRateRef'
-    CreateSalesInvoiceRequest:
-      type: object
-      properties:
-        sales_invoice:
-          type: object
-          required:
-          - contact_id
-          - date
-          - line_items
-          properties:
-            contact_id:
-              type: string
-            date:
-              type: string
-              format: date
-            due_date:
-              type: string
-              format: date
-            reference:
-              type: string
-            line_items:
-              type: array
-              items:
-                $ref: '#/components/schemas/LineItemInput'
-    ContactRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    CurrencyRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    SalesInvoiceList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesInvoice'
-        $total:
-          type: integer
-        $page:
-          type: integer
-    StatusRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     SalesInvoice:
       type: object
       properties:
@@ -296,14 +213,97 @@ components:
           type: number
         currency:
           $ref: '#/components/schemas/CurrencyRef'
-    TaxRateRef:
+    LineItemInput:
+      type: object
+      required:
+      - description
+      - quantity
+      - unit_price
+      - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
+    ContactRef:
       type: object
       properties:
         id:
           type: string
         displayed_as:
           type: string
+    SalesInvoiceList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesInvoice'
+        $total:
+          type: integer
+        $page:
+          type: integer
+    CreateSalesInvoiceRequest:
+      type: object
+      properties:
+        sales_invoice:
+          type: object
+          required:
+          - contact_id
+          - date
+          - line_items
+          properties:
+            contact_id:
+              type: string
+            date:
+              type: string
+              format: date
+            due_date:
+              type: string
+              format: date
+            reference:
+              type: string
+            line_items:
+              type: array
+              items:
+                $ref: '#/components/schemas/LineItemInput'
     LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+    CurrencyRef:
       type: object
       properties:
         id:
