@@ -72,13 +72,6 @@ paths:
                 $ref: '#/components/schemas/Payment'
 components:
   schemas:
-    BankAccountRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     Payment:
       type: object
       properties:
@@ -93,6 +86,13 @@ components:
           type: string
         bank_account:
           $ref: '#/components/schemas/BankAccountRef'
+    BankAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
     PaymentRequest:
       type: object
       properties:

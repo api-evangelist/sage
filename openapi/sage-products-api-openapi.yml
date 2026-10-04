@@ -113,22 +113,6 @@ paths:
                 $ref: '#/components/schemas/Product'
 components:
   schemas:
-    ProductList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        $total:
-          type: integer
-    TaxRateRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     Product:
       type: object
       properties:
@@ -161,6 +145,36 @@ components:
           type: number
         currency:
           $ref: '#/components/schemas/CurrencyRef'
+    LedgerAccountRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    UpdateProductRequest:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            description:
+              type: string
+            item_code:
+              type: string
+            sales_prices:
+              type: array
+              items:
+                $ref: '#/components/schemas/PriceInput'
+    ProductList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        $total:
+          type: integer
     PriceInput:
       type: object
       properties:
@@ -168,7 +182,7 @@ components:
           type: number
         currency_id:
           type: string
-    CurrencyRef:
+    TaxRateRef:
       type: object
       properties:
         id:
@@ -195,21 +209,7 @@ components:
               type: string
             tax_rate_id:
               type: string
-    UpdateProductRequest:
-      type: object
-      properties:
-        product:
-          type: object
-          properties:
-            description:
-              type: string
-            item_code:
-              type: string
-            sales_prices:
-              type: array
-              items:
-                $ref: '#/components/schemas/PriceInput'
-    LedgerAccountRef:
+    CurrencyRef:
       type: object
       properties:
         id:

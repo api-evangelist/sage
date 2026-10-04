@@ -34,6 +34,20 @@ paths:
                 $ref: '#/components/schemas/Business'
 components:
   schemas:
+    CurrencyRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
     Business:
       type: object
       properties:
@@ -67,20 +81,6 @@ components:
           type: string
         country:
           $ref: '#/components/schemas/CountryRef'
-    CountryRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    CurrencyRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

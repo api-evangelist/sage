@@ -34,6 +34,13 @@ paths:
                 $ref: '#/components/schemas/TaxRateList'
 components:
   schemas:
+    TaxRateList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxRate'
     TaxRate:
       type: object
       properties:
@@ -47,13 +54,6 @@ components:
           type: number
         is_combined_tax_rate:
           type: boolean
-    TaxRateList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaxRate'
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -73,6 +73,37 @@ paths:
                 $ref: '#/components/schemas/BankAccount'
 components:
   schemas:
+    BankAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+        name:
+          type: string
+        nominal_code:
+          type: string
+        balance:
+          type: number
+        bank_account_type:
+          $ref: '#/components/schemas/TypeRef'
+        currency:
+          $ref: '#/components/schemas/CurrencyRef'
+    TypeRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    BankAccountList:
+      type: object
+      properties:
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankAccount'
     CreateBankAccountRequest:
       type: object
       properties:
@@ -94,37 +125,6 @@ components:
               - OTHER
             nominal_code:
               type: string
-    BankAccountList:
-      type: object
-      properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/BankAccount'
-    TypeRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    BankAccount:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-        name:
-          type: string
-        nominal_code:
-          type: string
-        balance:
-          type: number
-        bank_account_type:
-          $ref: '#/components/schemas/TypeRef'
-        currency:
-          $ref: '#/components/schemas/CurrencyRef'
     CurrencyRef:
       type: object
       properties:

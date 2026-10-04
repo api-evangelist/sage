@@ -154,6 +154,42 @@ paths:
           description: Contact deleted
 components:
   schemas:
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    AddressInput:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country_id:
+          type: string
+    UpdateContactRequest:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
     ContactList:
       type: object
       properties:
@@ -171,6 +207,34 @@ components:
         $back:
           type: string
           nullable: true
+    CreateContactRequest:
+      type: object
+      required:
+      - name
+      - contact_type_ids
+      properties:
+        contact:
+          type: object
+          required:
+          - name
+          - contact_type_ids
+          properties:
+            name:
+              type: string
+              example: Acme Corporation
+            contact_type_ids:
+              type: array
+              items:
+                type: string
+              example:
+              - CUSTOMER
+            email:
+              type: string
+              format: email
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
     Contact:
       type: object
       properties:
@@ -213,27 +277,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    UpdateContactRequest:
-      type: object
-      properties:
-        contact:
-          type: object
-          properties:
-            name:
-              type: string
-            email:
-              type: string
-            telephone:
-              type: string
-            address:
-              $ref: '#/components/schemas/AddressInput'
-    CountryRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     ErrorResponse:
       type: object
       properties:
@@ -261,49 +304,6 @@ components:
           type: string
         country:
           $ref: '#/components/schemas/CountryRef'
-    CreateContactRequest:
-      type: object
-      required:
-      - name
-      - contact_type_ids
-      properties:
-        contact:
-          type: object
-          required:
-          - name
-          - contact_type_ids
-          properties:
-            name:
-              type: string
-              example: Acme Corporation
-            contact_type_ids:
-              type: array
-              items:
-                type: string
-              example:
-              - CUSTOMER
-            email:
-              type: string
-              format: email
-            telephone:
-              type: string
-            address:
-              $ref: '#/components/schemas/AddressInput'
-    AddressInput:
-      type: object
-      properties:
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        city:
-          type: string
-        region:
-          type: string
-        postal_code:
-          type: string
-        country_id:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

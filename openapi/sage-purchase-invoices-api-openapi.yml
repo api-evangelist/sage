@@ -97,20 +97,63 @@ paths:
                 $ref: '#/components/schemas/PurchaseInvoice'
 components:
   schemas:
-    StatusRef:
+    LineItem:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: number
+        unit_price:
+          type: number
+        net_amount:
+          type: number
+        tax_amount:
+          type: number
+        total_amount:
+          type: number
+        ledger_account:
+          $ref: '#/components/schemas/LedgerAccountRef'
+        tax_rate:
+          $ref: '#/components/schemas/TaxRateRef'
+    LineItemInput:
+      type: object
+      required:
+      - description
+      - quantity
+      - unit_price
+      - ledger_account_id
+      properties:
+        description:
+          type: string
+        quantity:
+          type: number
+          default: 1
+        unit_price:
+          type: number
+          format: double
+        ledger_account_id:
+          type: string
+        tax_rate_id:
+          type: string
+    LedgerAccountRef:
       type: object
       properties:
         id:
           type: string
         displayed_as:
           type: string
-    TaxRateRef:
+    PurchaseInvoiceList:
       type: object
       properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
+        $items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseInvoice'
+        $total:
+          type: integer
     PurchaseInvoice:
       type: object
       properties:
@@ -149,35 +192,20 @@ components:
           type: string
         displayed_as:
           type: string
-    LineItemInput:
-      type: object
-      required:
-      - description
-      - quantity
-      - unit_price
-      - ledger_account_id
-      properties:
-        description:
-          type: string
-        quantity:
-          type: number
-          default: 1
-        unit_price:
-          type: number
-          format: double
-        ledger_account_id:
-          type: string
-        tax_rate_id:
-          type: string
-    PurchaseInvoiceList:
+    TaxRateRef:
       type: object
       properties:
-        $items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PurchaseInvoice'
-        $total:
-          type: integer
+        id:
+          type: string
+        displayed_as:
+          type: string
+    StatusRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
     CreatePurchaseInvoiceRequest:
       type: object
       properties:
@@ -202,34 +230,6 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/LineItemInput'
-    LineItem:
-      type: object
-      properties:
-        id:
-          type: string
-        description:
-          type: string
-        quantity:
-          type: number
-        unit_price:
-          type: number
-        net_amount:
-          type: number
-        tax_amount:
-          type: number
-        total_amount:
-          type: number
-        ledger_account:
-          $ref: '#/components/schemas/LedgerAccountRef'
-        tax_rate:
-          $ref: '#/components/schemas/TaxRateRef'
-    LedgerAccountRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
