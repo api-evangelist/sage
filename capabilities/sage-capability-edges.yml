@@ -1,0 +1,53 @@
+slug: sage
+provider: Sage
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Purchase Invoices
+  spec_file: sage-purchase-invoices-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.9
+  evidence: 'GET /purchase_invoices  listPurchaseInvoices; POST /purchase_invoices  createPurchaseInvoice  Create
+    Purchase Invoice; schemas: PurchaseInvoice, ContactRef, LedgerAccountRef'
+  reason: Creation and retrieval of supplier (purchase) invoices with ledger account coding is invoice
+    processing on the payables side — Accounts Payable Management.
+- tag: Sales Invoices
+  spec_file: sage-sales-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.9
+  evidence: 'POST /sales_invoices  createSalesInvoice  Create Sales Invoice; GET /sales_invoices  listSalesInvoices;
+    schemas: SalesInvoice, ContactRef, LedgerAccountRef'
+  reason: Full lifecycle of customer-facing sales invoices in an accounting ledger maps to customer invoicing
+    under Accounts Receivable Management.
+- tag: Ledger Accounts
+  spec_file: sage-ledger-accounts-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.88
+  evidence: GET /ledger_accounts  listLedgerAccounts  List Ledger Accounts; schemas LedgerAccount, LedgerAccountList
+  reason: Ledger accounts are the chart of accounts in Sage Accounting, squarely General Ledger Management.
+- tag: Payments
+  spec_file: sage-payments-api-openapi.yml
+  capability_id: BC-200
+  capability_id_l1: BC-200
+  capability_name: Financial Management
+  confidence: 0.85
+  evidence: POST /sales_invoices/{key}/payments  recordSalesPayment  Record Sales Payment; POST /purchase_invoices/{key}/payments  recordPurchasePayment
+  reason: Operations record payments against sales and purchase invoices in a cloud accounting ledger
+    — core financial accounting. Because the surface spans both cash application on receivables and payment
+    of payables, the L1 (Financial Management) is the honest level; no single L2 fits both halves.

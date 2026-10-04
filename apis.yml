@@ -243,6 +243,9 @@ apis:
   - type: GettingStarted
     url: https://developer.sage.com/accounting/guides/concepts/overview
 common:
+- type: CapabilityMap
+  url: capabilities/sage-capability-edges.yml
+  name: Sage Business Capability Map
 - type: AgenticAccess
   url: agentic-access/sage-agentic-access.yml
 - type: VulnerabilityDisclosure
