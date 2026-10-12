@@ -1,0 +1,17 @@
+generated: '2026-10-12'
+method: none
+checked:
+- https://marketplace.sage.com/
+marketplace_apps:
+- marketplace: own
+  channel: partner-built
+  app: sage
+  url: https://marketplace.sage.com/
+  app_count: null
+  adapter: sweep-accounting-stores.py:store_sage
+  listed: 0
+  platform_built: 0
+  partner_built: 0
+  order: null
+  status: 'not-machine-readable (HTTP 403: 403 and redirect to www.sage.com on every path)'
+edges: []
