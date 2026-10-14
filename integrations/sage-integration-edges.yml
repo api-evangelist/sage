@@ -1,7 +1,8 @@
 generated: '2026-10-12'
-method: none
+method: searched
 checked:
 - https://marketplace.sage.com/
+- procore/integrations/procore-integration-edges.yml
 marketplace_apps:
 - marketplace: own
   channel: partner-built
@@ -14,4 +15,23 @@ marketplace_apps:
   partner_built: 0
   order: null
   status: 'not-machine-readable (HTTP 403: 403 and redirect to www.sage.com on every path)'
-edges: []
+edges:
+- partner_name: Procore (own)
+  partner: procore
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.procore.com/apps/sage-paperless-construction-connector
+  mirror_of: procore/integrations/procore-integration-edges.yml
+  apps:
+  - Sage Paperless Construction Connector
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Document Management
+source:
+- procore/integrations/procore-integration-edges.yml
