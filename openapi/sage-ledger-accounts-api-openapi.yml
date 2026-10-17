@@ -49,13 +49,6 @@ paths:
                 $ref: '#/components/schemas/LedgerAccountList'
 components:
   schemas:
-    TypeRef:
-      type: object
-      properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
     LedgerAccountList:
       type: object
       properties:
@@ -80,6 +73,13 @@ components:
           $ref: '#/components/schemas/TypeRef'
         is_control_account:
           type: boolean
+    TypeRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -154,42 +154,18 @@ paths:
           description: Contact deleted
 components:
   schemas:
-    CountryRef:
+    ErrorResponse:
       type: object
       properties:
-        id:
-          type: string
-        displayed_as:
-          type: string
-    AddressInput:
-      type: object
-      properties:
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        city:
-          type: string
-        region:
-          type: string
-        postal_code:
-          type: string
-        country_id:
-          type: string
-    UpdateContactRequest:
-      type: object
-      properties:
-        contact:
-          type: object
-          properties:
-            name:
-              type: string
-            email:
-              type: string
-            telephone:
-              type: string
-            address:
-              $ref: '#/components/schemas/AddressInput'
+        $problems:
+          type: array
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+              message:
+                type: string
     ContactList:
       type: object
       properties:
@@ -207,6 +183,57 @@ components:
         $back:
           type: string
           nullable: true
+    CountryRef:
+      type: object
+      properties:
+        id:
+          type: string
+        displayed_as:
+          type: string
+    UpdateContactRequest:
+      type: object
+      properties:
+        contact:
+          type: object
+          properties:
+            name:
+              type: string
+            email:
+              type: string
+            telephone:
+              type: string
+            address:
+              $ref: '#/components/schemas/AddressInput'
+    Address:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country:
+          $ref: '#/components/schemas/CountryRef'
+    AddressInput:
+      type: object
+      properties:
+        address_line_1:
+          type: string
+        address_line_2:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        postal_code:
+          type: string
+        country_id:
+          type: string
     CreateContactRequest:
       type: object
       required:
@@ -277,33 +304,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    ErrorResponse:
-      type: object
-      properties:
-        $problems:
-          type: array
-          items:
-            type: object
-            properties:
-              dataPath:
-                type: string
-              message:
-                type: string
-    Address:
-      type: object
-      properties:
-        address_line_1:
-          type: string
-        address_line_2:
-          type: string
-        city:
-          type: string
-        region:
-          type: string
-        postal_code:
-          type: string
-        country:
-          $ref: '#/components/schemas/CountryRef'
   securitySchemes:
     OAuth2:
       type: oauth2
