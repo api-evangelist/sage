@@ -100,7 +100,7 @@
     - connectors/applications/sage-hr
     vendor_link: https://www.sage.com/en-us/sage-business-cloud/hr/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: sage-microsoft-teams-own
   label: Microsoft Teams (own)
