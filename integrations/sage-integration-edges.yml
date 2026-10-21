@@ -8,7 +8,13 @@ checked:
 - https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees
 - https://www.streamlinedsalestax.org/certified-service-providers/certified-service-providers-list
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-- procore/integrations/procore-integration-edges.yml
+- https://docs.stripe.com/stripe-apps
+- https://docs.stripe.com/stripe-apps/review-requirements
+- https://marketplace.stripe.com/
+- https://marketplace.stripe.com/appm/apps
+- https://stripe.com/partners/directory
+- https://stripe.com/partners/verified-partners
+- https://stripe.partners/sitemap.xml
 marketplace_apps:
 - marketplace: own
   channel: partner-built
@@ -22,23 +28,32 @@ marketplace_apps:
   order: null
   status: 'not-machine-readable (HTTP 403: 403 and redirect to www.sage.com on every path)'
 edges:
-- partner_name: Procore (own)
-  partner: procore
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
   type: marketplace
-  relationship: platform-app
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
   direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.procore.com/apps/sage-paperless-construction-connector
-  mirror_of: procore/integrations/procore-integration-edges.yml
-  apps:
-  - Sage Paperless Construction Connector
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Document Management
+  evidence: https://fivetran.com/docs/connectors/applications/sage-hr
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: Sage HR
+    matched_domain: sage.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/applications/sage-hr
+    vendor_link: https://www.sage.com/en-us/sage-business-cloud/hr/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 - partner_name: OpenPeppol (certified service providers)
   partner: null
   partner_match: register
@@ -68,7 +83,7 @@ edges:
     signal_note: certified_products = one entry per Peppol-certified SERVICE (Access Point, SMP); authorities and
       countries are context, never read
     detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-einvoicing-tax.py
   first_seen: '2026-10-15'
 - partner_name: OpenPeppol (certified service providers)
@@ -92,7 +107,7 @@ edges:
     registered_name: Sage
     matched_domain: sage.com
     detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-einvoicing-tax.py
   first_seen: '2026-10-15'
 - partner_name: DGFiP plateformes agreees (France e-invoicing reform)
@@ -120,35 +135,9 @@ edges:
     signal_note: certified_products = the immatriculation (one per operator); an operator awaiting the interop tests
       is participation only
     detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-einvoicing-tax.py
   first_seen: '2026-10-15'
-- partner_name: Fivetran
-  partner: fivetran
-  partner_match: aggregator
-  type: marketplace
-  marketplace: fivetran-connectors
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://fivetran.com/docs/connectors/applications/sage-hr
-  category: null
-  contract_reference:
-    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
-    spec_file: null
-    role: elt-connector:fivetran
-    registered_name: Sage HR
-    matched_domain: sage.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connector_paths:
-    - connectors/applications/sage-hr
-    vendor_link: https://www.sage.com/en-us/sage-business-cloud/hr/
-    builder: Fivetran
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
 - partner_name: Microsoft Teams (own)
   partner: microsoft-teams
   partner_match: mirror
@@ -168,5 +157,59 @@ edges:
   category: Microsoft Teams app
   publisher_verified:
   - Microsoft 365 Publisher Attestation
+- partner_name: Stripe Partner Ecosystem
+  partner: stripe
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://stripe.partners/directory/sage
+  category: Stripe ecosystem partner
+  contract_reference:
+    register: Stripe Partner Ecosystem directory (stripe.com/partners/directory -> stripe.partners, PartnerPage
+      SSR __NUXT_DATA__)
+    standard: Stripe Partner Ecosystem
+    spec_file: null
+    role: stripe-verified-partner
+    registered_name: Sage
+    register_id: sage
+    partner_tier:
+    - Premier SaaS Platform Partner
+    matched_domain: sage.com
+    matched_by: domain+name-among-holders
+    identity_source: the directory's own website field for the partner (no lookup)
+    signal_note: 'certified_products = ONE entry per verified product type (Premier Apps / SaaS Platform / Payments
+      Partner: Stripe verified the product integration; no dates printed, lapsed null = unknown); Premier Services
+      Partner is a services tier (partner_tier only); Certified Professional Developers certify PEOPLE (context);
+      callouts / products never counted'
+    context:
+      callouts:
+      - Accounting
+      - Booking and scheduling
+      - Compliance
+      - ERP
+      - Invoicing and subscriptions
+      stripe_products:
+      - Payments
+      - Connect
+      - Invoicing
+      - Radar
+      - Tax
+      - Financial Connections
+      - Instant Payouts
+      - Link
+      - Radar for Fraud Teams
+      location: Newcastle Upon Tyne, UK
+    detected_by: sweep-stripe-app-marketplace.py
+    detected: '2026-10-21'
+    certified_products:
+    - product: Sage
+      product_type: SaaS platform with embedded Stripe (verified platform integration)
+      certifier: Stripe (Verified Partner program)
+      verification: Premier SaaS Platform Partner
+      lapsed: null
+  detected_by: sweep-stripe-app-marketplace.py
+  first_seen: '2026-10-21'
 source:
-- procore/integrations/procore-integration-edges.yml
+- microsoft-teams/integrations/microsoft-teams-integration-edges.yml
