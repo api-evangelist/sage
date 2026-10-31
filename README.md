@@ -1,4 +1,4 @@
-# Sage (sage)
+# Sage
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,150 +66,234 @@
 
 Sage provides cloud-based ERP, accounting, payroll, and HR software for businesses worldwide. The Sage Developer program provides APIs for integrating with Sage products including Sage Accounting (Business Cloud), Sage Intacct, Sage 200, Sage X3, and Sage 50. APIs support OAuth 2.0 authentication and cover contacts, invoices, payments, ledger accounts, bank accounts, products, and financial reporting. Sage Accounting API v3.1 is the current supported REST version with daily limits of 1,296,000 requests per app.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/sage/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/sage/refs/heads/main/apis.yml)
+**Areas:** Accounting · Business Management · Cloud Software · ERP · Payroll · Human Resources
 
-## Scope
+## Sage on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Sage is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sage/](https://apis.io/providers/sage/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (13)
 
-- Accounting
-- Business Management
-- Cloud Software
-- ERP
-- Payroll
-- HR
+- [Sage Intacct API](https://apis.io/apis/sage/intacct/) — Sage Intacct provides both REST and XML APIs for advanced financial management including multi-entity consolidations, project accounting, revenue…
+- [Sage X3 API](https://apis.io/apis/sage/sage-x3/) — Sage X3 provides a GraphQL API offering flexible data access for ERP operations including manufacturing, distribution, procurement, finance, and CRM.…
+- [Sage 200 API](https://apis.io/apis/sage/sage-200/) — Sage 200 API provides REST access to Sage 200 Standard and Professional business management data including customers, suppliers, stock, sales orders,…
+- [Sage 50 Accounts API](https://apis.io/apis/sage/sage-50/) — Sage 50 Accounts API enables desktop accounting integration for UK small businesses. Provides access to accounts, transactions, customers, suppliers,…
+- [Sage Bank Accounts API](https://apis.io/apis/sage/sage-bank-accounts-api/) — Bank account and transaction management
+- [Sage Business API](https://apis.io/apis/sage/sage-business-api/) — Business settings and configuration
+- [Sage Contacts API](https://apis.io/apis/sage/sage-contacts-api/) — Customer and supplier contact management
+- [Sage Ledger Accounts API](https://apis.io/apis/sage/sage-ledger-accounts-api/) — Chart of accounts and ledger management
+- [Sage Payments API](https://apis.io/apis/sage/sage-payments-api/) — Customer and supplier payment recording
+- [Sage Products API](https://apis.io/apis/sage/sage-products-api/) — Product and service catalog management
+- [Sage Purchase Invoices API](https://apis.io/apis/sage/sage-purchase-invoices-api/) — Purchase invoice and supplier bill management
+- [Sage Sales Invoices API](https://apis.io/apis/sage/sage-sales-invoices-api/) — Sales invoice creation and management
+- [Sage Tax Rates API](https://apis.io/apis/sage/sage-tax-rates-api/) — Tax rate configuration
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-05-30
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Sage Accounting API
+Event-driven and webhook contracts.
 
-Sage Accounting API (v3.1) is a RESTful web service that connects software to Sage's cloud accounting platform. Supports contacts, sales invoices, purchase invoices, payments, bank accounts, ledger accounts, products/services, and financial reports. Uses OAuth 2.0 for authentication. Covers Sage Business Cloud Accounting and Sage Business Cloud Start products.
+- [Sage Webhooks](https://apis.io/asyncapis/sage/sage-webhooks-asyncapi/)
 
-- **Human URL:** [https://developer.sage.com/accounting](https://developer.sage.com/accounting)
+#### Event channels (4)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Accounting
-- ERP
-- REST
-- OAuth 2.0
+- [/sage/cm/webhook](https://apis.io/channels/sage/sage-cm-webhook/)
+- [/sage/intacct/webhook](https://apis.io/channels/sage/sage-intacct-webhook/)
+- [/sage/payments-out/webhook](https://apis.io/channels/sage/sage-payments-out-webhook/)
+- [/sage/people/webhook](https://apis.io/channels/sage/sage-people-webhook/)
 
-#### Properties
+#### GraphQL (1)
 
-- [Documentation](https://developer.sage.com/accounting/reference)
-- [Getting Started](https://developer.sage.com/accounting/guides/concepts/overview)
-- [OpenAPI](openapi/sage-accounting-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sage-accounting.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-accounting.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+GraphQL schemas.
 
-### Sage Intacct API
+- [Sage GraphQL API](https://apis.io/graphqls/sage/sage-graphql/)
 
-Sage Intacct provides both REST and XML APIs for advanced financial management including multi-entity consolidations, project accounting, revenue recognition, and advanced reporting. The REST API uses OAuth 2.0 for authorization. Targeted at mid-market and enterprise finance teams.
+#### Agentic access (1)
 
-- **Human URL:** [https://developer.sage.com/intacct/](https://developer.sage.com/intacct/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Sage Agentic Access](https://apis.io/agentic-access/sage/sage-agentic-access/)
 
-- Accounting
-- ERP
-- REST
-- XML
-- OAuth 2.0
+#### JSON Schema (41)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://developer.intacct.com/api/)
-- [Authentication](https://developer.sage.com/intacct/docs/1/sage-intacct-rest-api/authorization-and-security/oauth2)
-- [Postman Collection](collections/sage-accounting.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-accounting.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Address](https://apis.io/schemas/sage/sage-address/)
+- [AddressInput](https://apis.io/schemas/sage/sage-addressinput/)
+- [BankAccount](https://apis.io/schemas/sage/sage-bankaccount/)
+- [BankAccountList](https://apis.io/schemas/sage/sage-bankaccountlist/)
+- [BankAccountRef](https://apis.io/schemas/sage/sage-bankaccountref/)
+- [Business](https://apis.io/schemas/sage/sage-business/)
+- [Sage Contact](https://apis.io/schemas/sage/sage-contact/)
+- [ContactList](https://apis.io/schemas/sage/sage-contactlist/)
+- [ContactRef](https://apis.io/schemas/sage/sage-contactref/)
+- [CountryRef](https://apis.io/schemas/sage/sage-countryref/)
+- [CreateBankAccountRequest](https://apis.io/schemas/sage/sage-createbankaccountrequest/)
+- [CreateContactRequest](https://apis.io/schemas/sage/sage-createcontactrequest/)
+- [CreateProductRequest](https://apis.io/schemas/sage/sage-createproductrequest/)
+- [CreatePurchaseInvoiceRequest](https://apis.io/schemas/sage/sage-createpurchaseinvoicerequest/)
+- [CreateSalesInvoiceRequest](https://apis.io/schemas/sage/sage-createsalesinvoicerequest/)
+- [CurrencyRef](https://apis.io/schemas/sage/sage-currencyref/)
+- [ErrorResponse](https://apis.io/schemas/sage/sage-errorresponse/)
+- [Sage Sales Invoice](https://apis.io/schemas/sage/sage-invoice/)
+- [LedgerAccount](https://apis.io/schemas/sage/sage-ledgeraccount/)
+- [LedgerAccountList](https://apis.io/schemas/sage/sage-ledgeraccountlist/)
+- [LedgerAccountRef](https://apis.io/schemas/sage/sage-ledgeraccountref/)
+- [LineItem](https://apis.io/schemas/sage/sage-lineitem/)
+- [LineItemInput](https://apis.io/schemas/sage/sage-lineiteminput/)
+- [Payment](https://apis.io/schemas/sage/sage-payment/)
+- [PaymentRequest](https://apis.io/schemas/sage/sage-paymentrequest/)
+- …and 16 more published on APIs.io
 
-### Sage X3 API
+#### JSON Structure (3)
 
-Sage X3 provides a GraphQL API offering flexible data access for ERP operations including manufacturing, distribution, procurement, finance, and CRM. Supports SOAP API for legacy integrations. Targeted at enterprise and manufacturing organizations.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://developer.sage.com/x3/](https://developer.sage.com/x3/)
+- [Sage Contact Structure](https://apis.io/json-structure/sage/sage-contact-structure/)
+- [Sage Invoice Structure](https://apis.io/json-structure/sage/sage-invoice-structure/)
+- [Sage Structure](https://apis.io/json-structure/sage/sage-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- ERP
-- GraphQL
-- Manufacturing
-- Distribution
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Sage Context](https://apis.io/jsonld/sage/sage-context/)
 
-- [Documentation](https://developer.sage.com/x3/)
-- [Postman Collection](collections/sage-accounting.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-accounting.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Sage 200 API
+The provider's domain terms, defined.
 
-Sage 200 API provides REST access to Sage 200 Standard and Professional business management data including customers, suppliers, stock, sales orders, purchase orders, nominal ledger, bank reconciliation, and financial reporting for UK and Ireland mid-size businesses.
+- [Sage Accounting Vocabulary](https://apis.io/vocabularies/sage/sage-vocabulary/)
 
-- **Human URL:** [https://developer.sage.com/sage-200/](https://developer.sage.com/sage-200/)
+#### Examples (3)
 
-#### Tags
+Example requests and responses.
 
-- Accounting
-- ERP
-- REST
+- [Sage Create Contact Example](https://apis.io/examples/sage/sage-create-contact-example/)
+- [Sage Create Sales Invoice Example](https://apis.io/examples/sage/sage-create-sales-invoice-example/)
+- [Sage Record Payment Example](https://apis.io/examples/sage/sage-record-payment-example/)
 
-#### Properties
+#### Collections (10)
 
-- [Documentation](https://developer.sage.com/sage-200/)
-- [Postman Collection](collections/sage-accounting.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-accounting.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### Sage 50 Accounts API
+- [Sage Accounting API](https://apis.io/collections/sage/open-sage-accounting/)
+- [Sage Accounting Bank Accounts API](https://apis.io/collections/sage/open-sage-bank-accounts-api/)
+- [Sage Accounting Bank Accounts Business API](https://apis.io/collections/sage/open-sage-business-api/)
+- [Sage Accounting Bank Accounts Contacts API](https://apis.io/collections/sage/open-sage-contacts-api/)
+- [Sage Accounting Bank Accounts Ledger Accounts API](https://apis.io/collections/sage/open-sage-ledger-accounts-api/)
+- [Sage Accounting Bank Accounts Payments API](https://apis.io/collections/sage/open-sage-payments-api/)
+- [Sage Accounting Bank Accounts Products API](https://apis.io/collections/sage/open-sage-products-api/)
+- [Sage Accounting Bank Accounts Purchase Invoices API](https://apis.io/collections/sage/open-sage-purchase-invoices-api/)
+- [Sage Accounting Bank Accounts Sales Invoices API](https://apis.io/collections/sage/open-sage-sales-invoices-api/)
+- [Sage Accounting Bank Accounts Tax Rates API](https://apis.io/collections/sage/open-sage-tax-rates-api/)
 
-Sage 50 Accounts API enables desktop accounting integration for UK small businesses. Provides access to accounts, transactions, customers, suppliers, products, and financial data within Sage 50 Accounts software.
+#### Governance rules (3)
 
-- **Human URL:** [https://developer.sage.com/sage-50-accounts/](https://developer.sage.com/sage-50-accounts/)
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Sage — asyncapi rules](https://apis.io/rules/sage/sage-asyncapi-spectral-rules/)
+- [Sage — jsonschema rules](https://apis.io/rules/sage/sage-jsonschema-spectral-rules/)
+- [Sage API Rules](https://apis.io/rules/sage/sage-rules/)
 
-- Accounting
-- Desktop
-- REST
+#### Security (3)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://developer.sage.com/sage-50-accounts/)
-- [Postman Collection](collections/sage-accounting.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sage-accounting.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Sage Authentication](https://apis.io/security/sage/sage-authentication/)
+- [Sage Domain Security](https://apis.io/security/sage/sage-domain-security/)
+- [Sage Vulnerability Disclosure](https://apis.io/security/sage/sage-vulnerability-disclosure/)
 
-## Common Properties
+#### OAuth scopes (1)
 
-- [LinkedIn](https://www.linkedin.com/company/sage-software)
-- [Portal](https://developer.sage.com/)
-- [Documentation](https://developer.sage.com/)
-- [Authentication](https://developer.sage.com/accounting/guides/concepts/authentication)
-- [Sandbox](https://developer.sage.com/accounting/guides/test-drive/)
+The permissions the API asks for.
+
+- [Sage Scopes](https://apis.io/scopes/sage/sage-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Sage Plans Pricing](https://apis.io/plans/sage/sage-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Sage Rate Limits](https://apis.io/rate-limits/sage/sage-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Sage Finops](https://apis.io/finops/sage/sage-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.sage.com/)
+- [Documentation](https://developer.sage.com/)
 - [Support](https://developer.sage.com/support/)
 - [Blog](https://www.sage.com/en-us/blog/)
-- [GitHub Organization](https://github.com/Sage)
-- [OpenAPI](openapi/sage-accounting-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [AsyncAPI](asyncapi/sage-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Spectral Rules](rules/sage-rules.yml)
-- [JSON Schema](json-schema/sage-contact-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sage-invoice-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/sage-contact-structure.json)
-- [JSON Structure](json-structure/sage-invoice-structure.json)
-- [J S O N L D Context](json-ld/sage-context.jsonld)
-- [Vocabulary](vocabulary/sage-vocabulary.yml)
-- [Capabilities](capabilities/accounting-and-finance.yaml)
+- [GitHub](https://github.com/Sage)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 66.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 5.3 |
+
+**Agent readiness 31.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 32.4** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sage/](https://apis.io/providers/sage/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sage: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sage/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
